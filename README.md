@@ -9,8 +9,8 @@ This browser based web application to ...
 * Hi my name is Xinyang. I'm excited about this project because this is new to me!
 
 * Hi my name is Dongil, I'm excited about this project because it's my first
-collaborative project with my team.
-re
+collaborative project with my team. this is last version.
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
