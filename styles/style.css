@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap%27");
+
+nav {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.navbar-brand h1{
+  font-family: 'Comfortaa', cursive;
+  color: #46c3c5;
+}
+
+.navtop {
+  max-width: 100%;
+}
+
+.navbar-toggler-icon {
+  width: 50px !important;
+  height: 50px !important;
+}
+
 body {
   padding: 20px;
   font-size: 1rem;
