@@ -1,56 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap%27");
-
 nav {
-  border-bottom: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
-.navbar-brand h1{
-  font-family: 'Comfortaa', cursive;
-  color: #46c3c5;
+.navbar-brand h1 {
+    font-family: 'Comfortaa', cursive;
+    color: #46c3c5;
 }
 
 .navtop {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .navbar-toggler-icon {
-  width: 50px !important;
-  height: 50px !important;
+    width: 50px !important;
+    height: 50px !important;
 }
 
 body {
-  padding: 20px;
-  font-size: 1rem;
+    padding: 20px;
+    font-size: 1rem;
 }
 
 h1 {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .tags {
-  display: inline-block;
-  width: fit-content;
+    display: inline-block;
+    width: fit-content;
 }
 
 .material-icons {
-  font-size: 3rem;
+    font-size: 3rem;
 }
 
 .card {
-  position: relative;
+    position: relative;
 }
 
 .favorite {
-  position: absolute;
-  top: 3%;
-  right: 2%;
+    position: absolute;
+    top: 3%;
+    right: 2%;
 }
 
 .labels {
-  position: absolute;
-  bottom: 3%;
+    position: absolute;
+    bottom: 3%;
 }
 
 ::placeholder {
-  font-size: 2rem;
+    font-size: 2rem;
+}
+
+.bottomfoot>i {
+    font-size: 5rem;
 }
