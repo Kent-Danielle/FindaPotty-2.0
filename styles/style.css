@@ -116,7 +116,7 @@ h1 {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -40%);
-    animation-name: item;
+    animation-name: moveAnim;
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-delay: 0.5s;
@@ -127,15 +127,15 @@ h1 {
 }
 @keyframes moveAnim {
     from {
-        transform: translateY(-2vw);
+        transform: translate(-50%,-2vw);
     }
 
     50% {
-        transform: translateY(2vw);
+        transform: translate(-50%,2vw);
     }
 
     to {
-        transform: translateY(-2vw);
+        transform: translate(-50%,-2vw);
     }
 }
 
