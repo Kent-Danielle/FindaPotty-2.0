@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap%27");
+
 nav {
     border-bottom: 1px solid rgb(230, 230, 230);
 }
 
+.loading_header{
+    font-family: 'Comfortaa', cursive;
+    color: #46c3c5;
+}
 .navbar-brand h1 {
     font-family: 'Comfortaa', cursive;
     color: #46c3c5;
@@ -57,3 +62,80 @@ h1 {
 .bottomfoot>i {
     font-size: 5rem;
 }
+
+/* jumbotron */
+.bg-image {
+    /*background-image: url("./images/main.jpg");*/
+    /* background-repeat: no-repeat, repeat; */
+    /*background-color: #7e96e6; */
+    border-radius: 1rem;
+    height: 100vh;
+    width: 100%;
+    font-size: 20px;
+
+
+
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: system-ui, serif;
+
+}
+
+.letter1 {
+    font-size: 3em;
+    border: 1px solid;
+    padding-left: 0;
+
+}
+
+.letter2,
+.letter3 {
+    font-size: 2.5em;
+    border: 1px solid;
+
+    text-align: left;
+}
+
+.letter2 {
+    border-bottom: 0px;
+}
+
+.letter3 {
+    text-align: right;
+    border-top: 0px;
+}
+.item{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    animation-name: item;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+    
+}
+@keyframes moveAnim {
+    from {
+        transform: translateY(-2vw);
+    }
+
+    50% {
+        transform: translateY(2vw);
+    }
+
+    to {
+        transform: translateY(-2vw);
+    }
+}
+
