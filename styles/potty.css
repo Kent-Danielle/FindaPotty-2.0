@@ -1,0 +1,53 @@
+.tags {
+  display: inline-block;
+  width: fit-content;
+}
+
+.nav-item {
+  text-align: center;
+  width: 33.3%;
+}
+
+.post-tab {
+  width: 100%;
+}
+
+.nav-tabs {
+  border: 4px;
+  border-bottom: 0 !important;
+}
+
+.nav-link {
+  border-bottom: 2px solid black !important;
+}
+
+.nav-link.active {
+  border-bottom: 0;
+  color: black !important;
+  border: 2px solid black !important;
+  border-bottom: none !important;
+}
+
+.nav-link {
+  color: gray !important;
+}
+
+.container-fluid {
+  height: 100%;
+  width: 100%;
+}
+
+.post-tabs {
+  height: 70%;
+}
+
+.tab-pane {
+  height: 50%;
+  width: 100%;
+}
+
+.tab-content {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
