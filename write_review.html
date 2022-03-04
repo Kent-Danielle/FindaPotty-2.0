@@ -58,20 +58,11 @@
 
     <div class="form_background">
         <div class="input-form mx-auto">
-              
+                <br>
                 <form class="form">
-                   
-                    <div class="mt-3 row">
-                        <div class="col-md-3 mb-3"> <label for="location">Location:</label>
-                        </div>
-                        <div class="col-md-9 mb-3"><input type="text" class="form-control input-group-lg" id="location"
-                                placeholder="" value="" required>
-                        </div>
-
-                    </div>
 
                     <div class="mb-3 mt-2 row">
-                        <label for="Rate" class="col-sm-2 col-form-label pt-4">Rate:</label>
+                        <label for="Rate" class="col-sm-2 col-form-label pt-4">Rating:</label>
                         <div class="col-sm-10">
                             <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label
                                     for="5">☆</label>
@@ -82,44 +73,20 @@
                         </div>
                     </div>
 
-                    <div class="features mt-10 my-4">
-                        <i class="text-success material-icons md-dark">elderly</i>
-                        <i class="text-success material-icons">accessible</i>
-                        <i class="text-success material-icons">baby_changing_station</i>
-                        <i class="text-success material-icons">pregnant_woman</i>
-                        <i class="text-success material-icons">transgender</i>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-sm-12">
-                            <label for="tag">tag:</label>
-                            <div class="input-group">
-                                <input type="text" id="taginput" class="form-control">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"
-                                        onclick="setInnerText();">Add!</button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
                     <div id="tag_row" class="form-group">
 
                     </div>
 
-                    <div id="reviews" class="form-group mb-3">
-                        <label for="reviews">Reviews</label>
-                        <textarea class="form-control" rows="10"></textarea>
+                    <div id="reviews" class="mb-3">
+                        <label for="reviews">Review:</label>
+                        <textarea class="form-control" rows="7"></textarea>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="fileupload" class="form-label">Image Upload</label>
+                        <label for="fileupload" class="form-label">Add Image</label>
                         <input class="form-control form-control-lg" id="fileupload" type="file">
                     </div>
 
-                    <div class="form-group mb-3">
-                        <input type="checkbox" class="custom-control-input" id="aggrement" required>
-                        <label class="custom-control-label" for="aggrement">I agree collected data and use.</label>
-                    </div>
+
                     <div id="submit" class="form-group">
                         <button class="btn btn-primary">Post</button>
                         <button class="btn btn-warning">Cancel</button>
