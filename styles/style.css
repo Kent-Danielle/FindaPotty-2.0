@@ -1,11 +1,67 @@
+:root {
+  --neutral-color: #fffff8;
+  --darker-neutral-color: #f3f3e2;
+  --primary-color: #bae8e8;
+  --secondary-color: #2c698d;
+  --accent-color: #272643;
+  --font-on-light: #1e1e1e;
+  --font-on-dark: #fffff8;
+}
+
 body {
+  background-color: var(--neutral-color);
+  color: var(--font-on-light);
   margin: 0;
   padding: 0;
   height: 100vh;
   width: 100vw;
 }
 
+/* template styling */
+nav {
+  background-color: var(--primary-color);
+}
+
+footer {
+  background-color: var(--primary-color);
+}
+
 /* custom bootstrap INSPIRED styling */
+/* ---------------- */
+
+/* fontsizes */
 .fs-7 {
   font-size: 0.8rem !important;
+}
+
+/* widths and heights */
+.w-40 {
+  width: 40% !important;
+}
+
+/* background */
+.bg-neutral {
+  background-color: var(--neutral-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+/* border */
+.border-secondary {
+  border-color: var(--secondary-color) !important;
+}
+
+/* text colors */
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
 }
