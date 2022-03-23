@@ -41,8 +41,64 @@
 
     <!-- review posts -->
     <div class="reviews">
+        <div class="container-fluid p-0">
+            <div class="card mb-3 p-3 border border-dark">
+                <div class="row">
+                    <i class="material-icons col-2">
+                        <h1 class="display-1 d-flex justify-content-center">account_circle</h1>
+                    </i>
+                    <div class="info col">
+                        <div class="content">
+                            <h5 class="name">McGregorYugiOh400</h5>
+                            <h6 class="date">14 February 2022</h6>
+                            <div class="rate">
+                                <div class="rating p-0">
+                                    <i class="text-warning material-icons">
+                                        <h6>star</h6>
+                                    </i>
+                                    <i class="text-warning material-icons">
+                                        <h6>star</h6>
+                                    </i>
+                                    <i class="text-warning material-icons">
+                                        <h6>star</h6>
+                                    </i>
+                                    <i class="text-warning material-icons">
+                                        <h6>star</h6>
+                                    </i>
+                                    <i class="text-warning material-icons">
+                                        <h6>star</h6>
+                                    </i>
+                                </div>
+                            </div>
+                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla enim,
+                                posuere in
+                                tempor gravida, hendrerit sed orci. Integer quis turpis dapibus, dignissim felis a,
+                                dignissim eros. Quisque a hendrerit massa.</p>
+                            <div class="image row">
+                                <img src="https://dummyimage.com/600x600/000/fff"
+                                    class="img-fluid rounded-start p-md-3 w-25" alt="..." />
+                                <img src="https://dummyimage.com/600x600/000/fff"
+                                    class="img-fluid rounded-start p-md-3 w-25" alt="..." />
+                                <img src="https://dummyimage.com/600x600/000/fff"
+                                    class="img-fluid rounded-start p-md-3 w-25" alt="..." />
+                            </div>
+                            <div class="interact-container d-flex justify-content-end">
+                                <div class="interact pt-3">
+                                    <i class="material-icons px-2">
+                                        <h1>thumb_up</h1>
+                                    </i>
+                                    <i class="material-icons px-2">
+                                        <h1>thumb_down</h1>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <template id="reviewTemplate">
+        <template class="reviewTemplate">
             <div class="container-fluid p-0">
                 <div class="card mb-3 p-3 border border-dark">
                     <div class="row">
@@ -94,20 +150,23 @@
 
         </div>
     </div>
-
-    <button class="position-absolute end-0 top-50 rounded-circle border border-dark" style="z-index: 4;"onclick="window.location.href ='write_review.html';">
-        <i class="material-icons px-2">
-            <h1 class="pt-1">edit</h1>
-        </i>
-    </button>
+    <footer class="make-review fixed-bottom">
+        <div class="container p-4 d-flex justify-content-end">
+            <button class="rounded-circle border border-dark" onclick="window.location.href = 'write-review.html';">
+                <i class="material-icons px-2">
+                    <h1 class="pt-1">edit</h1>
+                </i>
+            </button>
+        </div>
+    </footer>
 
     <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------->
     <!-- Your own JavaScript function -->
     <!---------------------------------->
-    <script src="./scripts/firebaseAPI_TEAM22.js"></script>
-    <script src="./scripts/template.js"></script>
+    <script src="./scripts/firebaseAPI_bby22.js"></script>
+    <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/review.js"></script>
 </body>
