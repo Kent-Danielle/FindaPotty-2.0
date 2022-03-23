@@ -11,7 +11,7 @@
 body {
   background-color: var(--neutral-color);
   color: var(--font-on-light);
-  margin: 0;
+  margin: 15% 0 0;
   padding: 0;
   height: 100vh;
   width: 100vw;
@@ -64,4 +64,8 @@ footer {
 
 .text-secondary {
   color: var(--secondary-color) !important;
+}
+
+.text-light {
+  color: var(--font-on-light) !important;
 }
