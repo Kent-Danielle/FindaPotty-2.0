@@ -1,0 +1,118 @@
+
+/*-------------------------------------
+ * customize material design icon sizes 
+ *-------------------------------------
+ */
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.welcome {
+    text-align: center;
+    color: #1E1E1E;
+    font-family: Roboto, sans-serif;
+    position: relative;
+    top: 170px;
+
+}
+
+.firebaseui-container {
+    position: relative;
+    top: 170px;
+}
+
+.mdl-button--raised.mdl-button--colored {
+    background: #2C698D;
+    color: rgb(255,255,255);
+}
+
+.mdl-button {
+    background: transparent;
+    border: none;
+    border-radius: 2px;
+    color: rgb(0,0,0);
+    position: relative;
+    height: 36px;
+    margin: 0;
+    width: 100%;
+    padding: 0 16px;
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    transition: box-shadow .2s cubic-bezier(0.4, 0, 1, 1),background-color .2s cubic-bezier(0.4, 0, 0.2, 1),color .2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 36px;
+    /* vertical-align: middle; */
+}
+
+.mdl-button--raised.mdl-button--colored:hover {
+    background-color: #2C698D;
+}
+
+.firebaseui-title, .firebaseui-subtitle {
+    color: #2C698D;
+    font-family: Roboto, sans-serif;
+    direction: ltr;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    text-align:left;
+}
+
+.mdl-button--primary.mdl-button--primary {
+    color: #2C698D;
+}
+
+.firebaseui-label {
+    font-family: Roboto, sans-serif;
+    direction: ltr;
+    font-size: 16px;
+    text-align: left;
+}
+
+.firebaseui-tos {
+    color: #757575;
+    font-family: Roboto, sans-serif;
+    direction: ltr;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 24px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.firebaseui-inline-list-item {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    align-self:baseline;
+}
+
+.material-icons {
+    position: absolute;
+    top: 4%;
+    right: 2%;
+    color: #1E1E1E;
+}
+
+.button:hover {
+    color: #757575;
+}
+
+
+
+
+
+
