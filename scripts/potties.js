@@ -1,6 +1,9 @@
-function displayPotties(collection) {
-  let cardTemplate = document.getElementById("pottyTemplate");
+function loadPotties(collection) {
+  displayCards(collection);
+}
 
+function displayCards(collection) {
+  let cardTemplate = document.getElementById("pottyTemplate");
   db.collection(collection)
     .get()
     .then((snap) => {
@@ -15,6 +18,12 @@ function displayPotties(collection) {
         //update card
         //title
         newcard.querySelector("#pottyTitle").innerHTML = title;
+
+        //update image
+        if (doc.data().potty_pic != null) {
+          newcard.querySelector("#pottyImage").src = doc.data().potty_pic;
+        }
+        
 
         //check for ratings
         for (i = 0; i < ratings; i++) {
@@ -55,5 +64,4 @@ function displayPotties(collection) {
       });
     });
 }
-
-displayPotties("Potties");
+loadPotties("Potties");
