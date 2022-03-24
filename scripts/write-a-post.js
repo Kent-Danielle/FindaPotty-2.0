@@ -2,6 +2,7 @@ function writePost() {
     console.log("in")
     let Title = document.getElementById("inputTitle").value;
     let Location = document.getElementById("location").value;
+    let Ratings = document.getElementById("star-rating").value;
     let Description = document.getElementById("description").value;
     let elderCheck = document.querySelector('#elderlyCheck').checked;
     let accessibleCheck = document.querySelector('#accessibleCheck').checked;
@@ -20,22 +21,31 @@ function writePost() {
                 .then(userDoc => {
                     
                     // var userEmail = userDoc.data().email;
-                    db.collection("Posts").add({
+                    db.collection("Potties").add({
                         userID: userID,
                         title: Title,
                         // location: Location,
+                        ratings: Ratings,
                         description: Description,
-                        elderly: elderCheck,
-                        accessible: accessibleCheck,
-                        pregnant: pregnantCheck,
-                        child: childCheck,
-                        transgender: transgenderCheck
+                        elderly_accessible: elderCheck,
+                        wheelchair_accessible: accessibleCheck,
+                        pregnant_accessible: pregnantCheck,
+                        diaper_station: childCheck,
+                        LGBT_accessible: transgenderCheck
 
-                    }).then(()=>{
-                        //window.location.href = "thanks.html";
+                    }).then((doc)=>{
+                        currentUser
+                        .set(
+                          {
+                            bookmarks: firebase.firestore.FieldValue.arrayUnion(doc.id),
+                          },
+                          {
+                            merge: true,
+                          }
+                        )
+                        // window.location.href = "potties.html";
                     })
                 })
-                   
         } else {
             // No user is signed in.
         }
