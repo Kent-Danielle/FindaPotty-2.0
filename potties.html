@@ -46,8 +46,8 @@
 
     <!-- search bar -->
     <div class="searchbar d-flex justify-content-center p-4">
-        <input type="search" id="form1" class="search border border-secondary bg-neutral p-2" placeholder="Search"
-            style="width: 100%;" />
+        <input type="search" id="filter" class="search border border-secondary bg-neutral p-2" placeholder="Search"
+            style="width: 100%;" onkeyup="searchProduct();" />
         <button type="button" class="btn">
             <i class="material-icons">search</i>
         </button>
@@ -64,7 +64,7 @@
 
     <!-- bathroom posts -->
     
-    <div id="Potties-go-here" class=" container-fluid px-1" ">
+    <div id="Potties-go-here" class="mb-5 container-fluid">
 
         <template id="pottyTemplate">
             <div class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative">

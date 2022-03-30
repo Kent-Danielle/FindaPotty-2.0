@@ -19,7 +19,7 @@ async function loadPotty(pottyID, collection) {
   }
 
   //public or private
-  newcard.getElementById("privacy").innerHTML = doc.data().isPublic
+  newcard.getElementById("privacy").innerHTML = doc.data().isPublic;
 
   //check for ratings
   for (n = 0; n < ratings; n++) {
@@ -51,10 +51,33 @@ async function loadPotty(pottyID, collection) {
   document.getElementById("detail").innerText = doc.data().detail;
 
   document.getElementById("Potty-go-here").appendChild(newcard);
-
-
 }
 
 let pottyID = localStorage.getItem("pottyID");
+
 loadPotty(pottyID, "Potties");
 
+function addBookmark() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      currentUser = db.collection("Users").doc(user.uid);
+      currentUser
+        .set(
+          {
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log("bookmark has been saved for: " + currentUser);
+          db.collection("Potties").doc(pottyID).update({
+            saved: true,
+          });
+        });
+    } else {
+      window.location.href = "login.html";
+    }
+  });
+}

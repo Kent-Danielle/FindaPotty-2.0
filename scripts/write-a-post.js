@@ -47,6 +47,7 @@ function writePost() {
             gender_neutral: transgenderCheck,
             isPublic: Public,
             potty_pic: "",
+            saved: false,
           })
           .then((doc) => {
             console.log(doc.id);
