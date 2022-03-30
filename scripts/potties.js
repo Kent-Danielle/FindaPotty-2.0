@@ -13,6 +13,7 @@ function displayCards(collection) {
         var ratings = doc.data().ratings; //get potty ratings (integer)
         var starRatings = "";
         var features = "";
+        var privacy = "";
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update card
@@ -23,41 +24,46 @@ function displayCards(collection) {
         if (doc.data().potty_pic != null) {
           newcard.querySelector("#pottyImage").src = doc.data().potty_pic;
         }
-        
+
+        //public or private
+        if (doc.data().isPublic) {
+          privacy =
+            "<p class='fit-content bg-info text-white p-1 rounded-3 fs-7'>public</p>";
+        } else {
+          privacy =
+            "<p class='fit-content bg-info text-white p-1 rounded-3 fs-7'>private</p>";
+        }
+        newcard.querySelector("#privacy").innerHTML = privacy;
 
         //check for ratings
-        for (i = 0; i < ratings; i++) {
+        for (n = 0; n < ratings; n++) {
           starRatings =
             starRatings + "<i class='text-warning material-icons'>star</i>";
         }
         newcard.querySelector(".rating").innerHTML = starRatings;
 
         //check for features
-        if (doc.data().elderly_accessible == true) {
-          features += "<i class='text-accent material-icons'>elderly</i>";
-        }
-        if (doc.data().wheelchair_accessible == true) {
+        if (doc.data().mobility_accessible == true) {
           features += "<i class='text-accent material-icons'>accessible</i>";
         }
         if (doc.data().diaper_station == true) {
           features +=
             "<i class='text-accent material-icons'>baby_changing_station</i>";
         }
-        if (doc.data().pregnant_accessible == true) {
-          features +=
-            "<i class='text-accent material-icons'>pregnant_woman</i>";
-        }
-        if (doc.data().LGBT_accessible == true) {
+        if (doc.data().gender_neutral == true) {
           features += "<i class='text-accent material-icons'>transgender</i>";
         }
         newcard.querySelector(".features").innerHTML = features;
 
         //change heart icon according to saved state
         if (doc.data().saved == true) {
-          newcard.querySelector(".favorite").innerHTML = "favorite";
+          newcard.querySelector(".favorite").innerHTML = "bookmark";
         } else {
-          newcard.querySelector(".favorite").innerHTML = "favorite_border";
+          newcard.querySelector(".favorite").innerHTML = "bookmark_border";
         }
+
+        newcard.querySelector(".link-spanner").onclick = () =>
+          setPottyData(doc.id);
 
         document.getElementById(collection + "-go-here").appendChild(newcard);
         i++;
@@ -65,3 +71,7 @@ function displayCards(collection) {
     });
 }
 loadPotties("Potties");
+
+function setPottyData(id) {
+  localStorage.setItem("pottyID", id);
+}

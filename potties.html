@@ -64,10 +64,11 @@
 
     <!-- bathroom posts -->
     
-    <div id="Potties-go-here" class=" container-fluid px-1" onclick="window.location.href = 'potty.html';">
+    <div id="Potties-go-here" class=" container-fluid px-1" ">
 
         <template id="pottyTemplate">
-            <div class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2">
+            <div class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative">
+                <a href="potty.html" id="potty"><span class="link-spanner"></span></a>
                 <div class="row g-0">
                     <div class="col-5 d-flex align-items-center">
                     <img
@@ -79,31 +80,26 @@
                     </div>
                     <div class="col-7">
                     <i class="favorite text-secondary material-icons float-end me-2 mt-2"
-                        >favorite</i
+                        ></i
                     >
-                    <div class="card-body p-2">
+                    <div class="card-body p-2" id="potty-card">
 
-                        <h3 id="pottyTitle"class="card-title text-accent fw-bold">Card title</h3>
-                        <div id="rating" class="rating my-2">
-                        <!-- <i class="text-warning material-icons">star</i>
-                        <i class="text-warning material-icons">star</i>
-                        <i class="text-warning material-icons">star</i>
-                        <i class="text-warning material-icons">star</i>
-                        <i class="text-warning material-icons">star</i> -->
+                        <h3 id="pottyTitle"class="card-title text-accent fw-bold m-0">Card title</h3>
+                        <div id="privacy" class="privacy my-0">
                         </div>
 
-                        <div class="features my-2">
-                        <!-- <i class='text-success material-icons' >elderly</i>
-                        <i class='text-success material-icons' >accessible</i>
-                        <i class='text-success material-icons' 
-                            >baby_changing_station</i
-                        >
-                        <i class='text-success material-icons' >pregnant_woman</i>
-                        <i class='text-success material-icons' >transgender</i> -->
+                        <div id="rating" class="rating mb-2 mt-0">
+                        </div>
+
+                        <div class="features m-0">
                         </div>
                         
                     </div>
                     </div>
+                    
+                </div>
+                <div class="row">
+                    <p class="m-0 mt-1 likes-container">There are <span class="likes">5</span> people who found this post useful!</p>
                 </div>
             </div>
         </template>

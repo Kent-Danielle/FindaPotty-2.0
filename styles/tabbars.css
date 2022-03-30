@@ -1,0 +1,67 @@
+
+.nav-item {
+  text-align: center;
+  width: 33.3%;
+}
+
+.post-tab {
+  width: 100%;
+}
+
+.nav-tabs {
+  border: 4px;
+  border-bottom: 0 !important;
+}
+
+.nav-link {
+  border-bottom: 2px solid black !important;
+}
+
+.nav-link.active {
+  border-bottom: 0;
+  color: black !important;
+  border: 2px solid black !important;
+  border-bottom: none !important;
+}
+
+.nav-link {
+  color: gray !important;
+}
+
+.container-fluid {
+  height: 80%;
+  width: 100%;
+}
+
+.post-tabs {
+  height: 70%;
+}
+
+.tab-pane {
+  height: 50%;
+  width: 100%;
+}
+
+.tab-content {
+  height: 90%;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.link-spanner {
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+
+.likes-container {
+  color: #676767;
+  font-size: 0.8rem;
+}
+
+#detail-card {
+  border-radius: 1rem;
+}

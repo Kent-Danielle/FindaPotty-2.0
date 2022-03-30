@@ -32,6 +32,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link
       type="text/css"
@@ -56,10 +57,11 @@
     <!------------------------------>
 
     <!-- our own navbar goes here -->
-    <nav id="navbarPlaceholder"></nav>
+    <!-- <nav id="navbarPlaceholder"></nav> -->
 
     <!-- the body of your page goes here -->
-    <form action="" class="row g-2 m-3">
+    <h1 class="text-center m-0 p-0">Post-a-Potty</h1>
+    <form action="" class="row g-0 m-3">
       <div class="col-12">
         <label for="inputTitle" class="form-label">
           <h3 class="m-0 p-0">Title</h3>
@@ -73,7 +75,39 @@
         <input type="text" class="form-control" id="inputTitle" disabled />
       </div>
 
-      <h3 class="m-0 p-0 ms-2 mt-3">Ratings</h3>
+      <h3 class="m-0 p-0 ms-2 mt-3">Distance from venue</h3>
+      <div class="d-flex justify-content-evenly">
+        <input
+          type="radio"
+          class="btn-check"
+          name="options"
+          id="distance1"
+          autocomplete="off"
+          checked
+        />
+        <label class="btn btn-outline-info fit-content" for="distance1">< 100m</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="options"
+          id="distance2"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-info fit-content" for="distance2">100-300m</label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="options"
+          id="distance3"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-info fit-content" for="distance3">> 300m</label>
+      </div>
+
+      <h3 class="m-0 p-0 ms-2 mt-3">Select overall rating:</h3>
+      <!-- <p class="m-0 p-0 ms-2 fs-7 text-lighter">Select overall rating.</p> -->
       <div class="col-12 d-flex justify-content-center mt-3">
         <label class="rating-label">
           <input
@@ -83,13 +117,13 @@
             oninput="this.style.setProperty('--value', this.value)"
             step="1"
             type="range"
-            value="0"
+            value="1"
           />
         </label>
       </div>
 
-      <h3 class="m-0 p-0 ms-2 mt-3">Features</h3>
-      <div class="form-check col-5 ms-2">
+      <h3 class="m-0 p-0 ms-2 mt-3">Accessibility Features</h3>
+      <div class="form-check col-12 ms-2">
         <input
           class="form-check-input"
           type="checkbox"
@@ -97,32 +131,10 @@
           id="accessibleCheck"
         />
         <label class="form-check-label" for="flexCheckDefault">
-          <i class="material-icons col-2"> accessible </i>
+          Assisted access
         </label>
       </div>
-      <div class="form-check col-5 ms-2">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="elderlyCheck"
-        />
-        <label class="form-check-label" for="flexCheckDefault">
-          <i class="material-icons col-2"> elderly </i>
-        </label>
-      </div>
-      <div class="form-check col-5 ms-2">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="pregnantCheck"
-        />
-        <label class="form-check-label" for="flexCheckDefault">
-          <i class="material-icons col-2"> pregnant_woman </i>
-        </label>
-      </div>
-      <div class="form-check col-5 ms-2">
+      <div class="form-check col-12 ms-2">
         <input
           class="form-check-input"
           type="checkbox"
@@ -130,10 +142,10 @@
           id="childCheck"
         />
         <label class="form-check-label" for="flexCheckDefault">
-          <i class="material-icons col-2"> child_friendly </i>
+          Diaper station
         </label>
       </div>
-      <div class="form-check col-5 ms-2">
+      <div class="form-check col-12 ms-2">
         <input
           class="form-check-input"
           type="checkbox"
@@ -141,8 +153,31 @@
           id="transgenderCheck"
         />
         <label class="form-check-label" for="flexCheckDefault">
-          <i class="material-icons col-2"> transgender </i>
+          Gender neutral
         </label>
+      </div>
+
+      <div class="col-8">
+        <h5>Is it a public washroom?</h5>
+      </div>
+      <div class="form-check col-2">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="public"
+        />
+        <label class="form-check-label" for="public"> Yes </label>
+      </div>
+      <div class="form-check col-2">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="private"
+          checked
+        />
+        <label class="form-check-label" for="private"> No </label>
       </div>
 
       <h3 class="m-0 p-0 ms-2 mt-3">Review</h3>
@@ -156,14 +191,19 @@
       </div>
 
       <div class="input-group mb-3">
-        <input type="file" class="form-control" id="inputGroupFile02" />
-        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        <input type="file" class="form-control" id="potty-image" />
       </div>
 
       <div class="col-12">
-        <button type="submit" class="btn btn-primary" onclick="writePost();">
+        <button
+          type="button"
+          onclick="writePost();"
+          class="btn btn-primary"
+          id="post-potty"
+        >
           Post
         </button>
+        <button type="button" class="btn btn-outline-primary">Cancel</button>
       </div>
     </form>
 
@@ -173,9 +213,9 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script src="./scripts/write-a-post.js"></script>
     <script src="./scripts/firebaseAPI_team22.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/write-a-post.js"></script>
   </body>
 </html>

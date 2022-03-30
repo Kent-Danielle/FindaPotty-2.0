@@ -1,54 +1,81 @@
 function writePost() {
-    console.log("in")
-    let Title = document.getElementById("inputTitle").value;
-    let Location = document.getElementById("location").value;
-    let Ratings = document.getElementById("star-rating").value;
-    let Description = document.getElementById("description").value;
-    let elderCheck = document.querySelector('#elderlyCheck').checked;
-    let accessibleCheck = document.querySelector('#accessibleCheck').checked;
-    let pregnantCheck = document.querySelector('#pregnantCheck').checked;
-    let childCheck = document.querySelector('#childCheck').checked;
-    let transgenderCheck = document.querySelector('#transgenderCheck').checked;
-    //console.log(Title, Location, Description, elderCheck, accessibleCheck, pregnantCheck, childCheck, transgenderCheck);
+  let Title = document.getElementById("inputTitle").value;
+  let Location = document.getElementById("location").value;
+  let Ratings = document.getElementById("star-rating").value;
+  let Detail = document.getElementById("description").value;
+  let accessibleCheck = document.querySelector("#accessibleCheck").checked;
+  let childCheck = document.querySelector("#childCheck").checked;
+  let transgenderCheck = document.querySelector("#transgenderCheck").checked;
+  let distance1 = document.getElementById("distance1");
+  let distance2 = document.getElementById("distance2");
+  let distance3 = document.getElementById("distance3");
+  let Distance;
 
+  if (distance1.checked) {
+    Distance = "< 100m";
+  }
+  if (distance2.checked) {
+    Distance = "100-300m";
+  } else {
+    Distance = "> 300m";
+  }
 
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            var currentUser = db.collection("Users").doc(user.uid)
-            var userID = user.uid;
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    
-                    // var userEmail = userDoc.data().email;
-                    db.collection("Potties").add({
-                        userID: userID,
-                        title: Title,
-                        // location: Location,
-                        ratings: Ratings,
-                        description: Description,
-                        elderly_accessible: elderCheck,
-                        wheelchair_accessible: accessibleCheck,
-                        pregnant_accessible: pregnantCheck,
-                        diaper_station: childCheck,
-                        LGBT_accessible: transgenderCheck
+  let Public;
+  if (document.getElementById("public").checked) {
+    Public = true;
+  } else {
+    Public = false;
+  }
 
-                    }).then((doc)=>{
-                        currentUser
-                        .set(
-                          {
-                            bookmarks: firebase.firestore.FieldValue.arrayUnion(doc.id),
-                          },
-                          {
-                            merge: true,
-                          }
-                        )
-                        // window.location.href = "potties.html";
-                    })
-                })
-        } else {
-            // No user is signed in.
-        }
-    });
+  //console.log(Title, Location, Description, elderCheck, accessibleCheck, pregnantCheck, childCheck, transgenderCheck);
 
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var currentUser = db.collection("Users").doc(user.uid);
+      var userID = user.uid;
+      //get the document for current user.
+      currentUser.get().then((userDoc) => {
+        db.collection("Potties")
+          .add({
+            userID: userID,
+            title: Title,
+            ratings: Ratings,
+            detail: Detail,
+            distance: Distance,
+            mobility_accessible: accessibleCheck,
+            diaper_station: childCheck,
+            gender_neutral: transgenderCheck,
+            isPublic: Public,
+          })
+          .then((doc) => {
+            console.log(doc.id);
+            const image = document.getElementById("potty-image");
+            storeImage(doc.id, image.files[0]);
+          });
+      });
+    } else {
+      // No user is signed in.
+    }
+  });
+}
+
+function storeImage(pottyid, pickedfile) {
+  var storageRef = firebase.storage().ref("images/" + pottyid + ".jpg"); // Get reference
+  var metadata = {
+    contentType: "image/jpeg",
+  };
+
+  // Upload picked file to cloud storage
+  storageRef.put(pickedfile, metadata).then(function () {
+    storageRef
+      .getDownloadURL() //get URL of the uploade file
+      .then(function (url) {
+        console.log(url); // Save the URL into users collection
+        db.collection("Potties").doc(pottyid).update({
+          potty_pic: url,
+        });
+
+        window.location.href = "potties.html";
+      });
+  });
 }
