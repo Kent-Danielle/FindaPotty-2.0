@@ -1,3 +1,12 @@
+var currentUser;
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    currentUser = db.collection("Users").doc(user.uid); //global
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
 async function loadPotty(pottyID, collection) {
   let cardTemplate = document.getElementById("pottyTemplate");
 
@@ -58,26 +67,19 @@ let pottyID = localStorage.getItem("pottyID");
 loadPotty(pottyID, "Potties");
 
 function addBookmark() {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      currentUser = db.collection("Users").doc(user.uid);
-      currentUser
-        .set(
-          {
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
-          },
-          {
-            merge: true,
-          }
-        )
-        .then(function () {
-          console.log("bookmark has been saved for: " + currentUser);
-          db.collection("Potties").doc(pottyID).update({
-            saved: true,
-          });
-        });
-    } else {
-      window.location.href = "login.html";
-    }
-  });
+  currentUser
+    .set(
+      {
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
+      },
+      {
+        merge: true,
+      }
+    )
+    .then(function () {
+      console.log("bookmark has been saved for: " + currentUser);
+      db.collection("Potties").doc(pottyID).update({
+        saved: true,
+      });
+    });
 }

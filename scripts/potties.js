@@ -1,8 +1,4 @@
-function loadPotties(collection) {
-  displayCards(collection);
-}
-
-function displayCards(collection) {
+function displayPotties(collection) {
   let cardTemplate = document.getElementById("pottyTemplate");
   db.collection(collection)
     .get()
@@ -62,7 +58,7 @@ function displayCards(collection) {
       });
     });
 }
-loadPotties("Potties");
+displayPotties("Potties");
 
 function setPottyData(id) {
   localStorage.setItem("pottyID", id);
