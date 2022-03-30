@@ -1,236 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
 
-    <!-- material icon -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
 
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/profile.css" />
+  <!-- material icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
-    />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/profile.css" />
 
-    <script
-      src="https://kit.fontawesome.com/546ef21c67.js"
-      crossorigin="anonymous"
-    ></script>
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- bootstrap js -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+  <script src="https://kit.fontawesome.com/546ef21c67.js" crossorigin="anonymous"></script>
 
-  <body>
-    <!-- nav -->
-    <nav id="navbarPlaceholder"></nav>
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+</head>
 
-    <div class="container">
-      <a href="potties.html" class="previous round" style="font-size: 40px"
-        >&#8249;</a
-      >
-      <!-- header -->
-      <div class="user-info text-center flex-column align-content-center">
-        <i id="user" class="fa fa-solid fa-circle-user"></i>
-        <h3 id="username" class="text-center">User ID: pottyuser123</h3>
-        <p id="userdate" class="text-center">Joined Date: Mar 6, 2022</p>
-      </div>
+<body>
+  <!-- nav -->
+  <nav id="navbarPlaceholder"></nav>
 
-      <!-- information -->
-      <div class="my-impact h-1004">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="post-tab nav-link active fs-3"
-              id="bookmarks-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#bookmarks"
-              type="button"
-              role="tab"
-              aria-controls="bookmarks"
-              aria-selected="true"
-            >
-              Bookmarks
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="post-tab nav-link fs-3"
-              id="myposts-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#myposts"
-              type="button"
-              role="tab"
-              aria-controls="myposts"
-              aria-selected="false"
-            >
-              My Posts
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="post-tab nav-link fs-3"
-              id="reviews-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#reviews"
-              type="button"
-              role="tab"
-              aria-controls="reviews"
-              aria-selected="false"
-            >
-              Reviews
-            </button>
-          </li>
-        </ul>
-
-        <div class="tab-content" id="myTabContent">
-          <div
-            class="tab-pane px-0 fade show active"
-            id="bookmarks"
-            role="tabpanel"
-            aria-labelledby="bookmarks-tab"
-          >
-            <div id="Bookmarks-go-here" class="container-fluid px-1">
-              <template id="pottyTemplate">
-                <div
-                  class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative"
-                >
-                  <a href="potty.html" id="potty"
-                    ><span class="link-spanner"></span
-                  ></a>
-                  <div class="row g-0">
-                    <div class="col-5 d-flex align-items-center">
-                      <img
-                        id="pottyImage"
-                        src="https://dummyimage.com/600x600/000/fff"
-                        class="w-100 rounded float-start rounded-start p-md-3"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="col-7">
-                      <i
-                        class="favorite text-secondary material-icons float-end me-2 mt-2"
-                      ></i>
-                      <div class="card-body p-2" id="potty-card">
-                        <h3
-                          id="pottyTitle"
-                          class="card-title text-accent fw-bold"
-                        >
-                          Card title
-                        </h3>
-                        <div id="rating" class="rating my-2"></div>
-
-                        <div class="features my-2"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <p class="m-0 mt-1 likes-container">
-                      There are <span class="likes">5</span> people who found
-                      this post useful!
-                    </p>
-                  </div>
-                </div>
-              </template>
-            </div>
-          </div>
-
-          <div
-            class="tab-pane px-0 h-75 fade"
-            id="myposts"
-            role="tabpanel"
-            aria-labelledby="myposts-tab"
-          >
-            <div id="Potties-go-here" class="container-fluid px-1">
-              <template id="pottyTemplate">
-                <div
-                  class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative"
-                >
-                  <a href="potty.html" id="potty"
-                    ><span class="link-spanner"></span
-                  ></a>
-                  <div class="row g-0">
-                    <div class="col-5 d-flex align-items-center">
-                      <img
-                        id="pottyImage"
-                        src="https://dummyimage.com/600x600/000/fff"
-                        class="w-100 rounded float-start rounded-start p-md-3"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="col-7">
-                      <i
-                        class="favorite text-secondary material-icons float-end me-2 mt-2"
-                      ></i>
-                      <div class="card-body p-2" id="potty-card">
-                        <h3
-                          id="pottyTitle"
-                          class="card-title text-accent fw-bold"
-                        >
-                          Card title
-                        </h3>
-                        <div id="rating" class="rating my-2"></div>
-
-                        <div class="features my-2"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <p class="m-0 mt-1 likes-container">
-                      There are <span class="likes">5</span> people who found
-                      this post useful!
-                    </p>
-                  </div>
-                </div>
-              </template>
-            </div>
-          </div>
-
-          <div
-            class="tab-pane p-3 h-75 fade"
-            id="reviews"
-            role="tabpanel"
-            aria-labelledby="reviews-tab"
-          ></div>
-        </div>
-      </div>
+  <div class="container">
+    <a href="potties.html" class="previous round" style="font-size: 40px">&#8249;</a>
+    <!-- header -->
+    <div class="user-info text-center flex-column align-content-center">
+      <i id="user" class="fa fa-solid fa-circle-user"></i>
+      <h3 id="username" class="text-center">User ID: pottyuser123</h3>
+      <h3 id="userdate" class="text-center">Joined Date: Mar 6, 2022</h3>
     </div>
 
-    <!-- footer -->
-    <nav id="footerPlaceholder"></nav>
+    <!-- information -->
+    <div class="my-impact h-1004">
+      <ul class="nav nav-tabs justify-content-center nav-fill" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="post-tab nav-link active fs-3" id="bookmarks-tab" data-bs-toggle="tab"
+            data-bs-target="#bookmarks" type="button" role="tab" aria-controls="bookmarks" aria-selected="true">
+            Bookmarks
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="post-tab nav-link fs-3" id="myposts-tab" data-bs-toggle="tab" data-bs-target="#myposts"
+            type="button" role="tab" aria-controls="myposts" aria-selected="false">
+            My Posts
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="post-tab nav-link fs-3" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
+            type="button" role="tab" aria-controls="reviews" aria-selected="false">
+            Reviews
+          </button>
+        </li>
+      </ul>
 
-    <script src="./scripts/firebaseAPI_TEAM22.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/potties.js"></script>
-    <script src="./scripts/saved.js"></script>
-    <script src="./scripts/profile.js"></script>
-  </body>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane px-0 fade show active" id="bookmarks" role="tabpanel" aria-labelledby="bookmarks-tab">
+          <div id="Bookmarks-go-here" class="container-fluid px-1">
+            <template id="pottyTemplate">
+              <div class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative">
+                <a href="potty.html" id="potty"><span class="link-spanner"></span></a>
+                <div class="row g-0">
+                  <div class="col-5 d-flex align-items-center">
+                    <img id="pottyImage" src="https://dummyimage.com/600x600/000/fff"
+                      class="w-100 rounded float-start rounded-start p-md-3" alt="..." />
+                  </div>
+                  <div class="col-7">
+                    <i class="favorite text-secondary material-icons float-end me-2 mt-2"></i>
+                    <div class="card-body p-2" id="potty-card">
+                      <h3 id="pottyTitle" class="card-title text-accent fw-bold">
+                        Card title
+                      </h3>
+                      <div id="rating" class="rating my-2"></div>
+
+                      <div class="features my-2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="m-0 mt-1 likes-container">
+                    There are <span class="likes">5</span> people who found
+                    this post useful!
+                  </p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div class="tab-pane px-0 h-75 fade" id="myposts" role="tabpanel" aria-labelledby="myposts-tab">
+          <div id="Potties-go-here" class="container-fluid px-1">
+            <template id="pottyTemplate">
+              <div class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative">
+                <a href="potty.html" id="potty"><span class="link-spanner"></span></a>
+                <div class="row g-0">
+                  <div class="col-5 d-flex align-items-center">
+                    <img id="pottyImage" src="https://dummyimage.com/600x600/000/fff"
+                      class="w-100 rounded float-start rounded-start p-md-3" alt="..." />
+                  </div>
+                  <div class="col-7">
+                    <i class="favorite text-secondary material-icons float-end me-2 mt-2"></i>
+                    <div class="card-body p-2" id="potty-card">
+                      <h3 id="pottyTitle" class="card-title text-accent fw-bold">
+                        Card title
+                      </h3>
+                      <div id="rating" class="rating my-2"></div>
+
+                      <div class="features my-2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="m-0 mt-1 likes-container">
+                    There are <span class="likes">5</span> people who found
+                    this post useful!
+                  </p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div class="tab-pane p-3 h-75 fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <nav id="footerPlaceholder"></nav>
+
+  <script src="./scripts/firebaseAPI_TEAM22.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/potties.js"></script>
+  <script src="./scripts/saved.js"></script>
+  <script src="./scripts/profile.js"></script>
+</body>
+
 </html>

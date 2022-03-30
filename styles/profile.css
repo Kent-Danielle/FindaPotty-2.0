@@ -1,6 +1,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: white;
 }
 
 .container {
@@ -9,9 +10,8 @@ body {
   height: 100%;
 }
 
-p {
-  text-align: left;
-  line-height: 0.5em;
+#username, #userdate {
+  font-size: 15px;
 }
 
 #user {
@@ -19,10 +19,24 @@ p {
   margin: 10px;
 }
 
-.container a {
-  text-decoration: none !important;
-  display: inline-block;
-  padding: 8px 16px;
+#bookmarks-tab, #myposts-tab, #reviews-tab {
+  font-size: 15px !important;
+}
+
+.nav {
+  margin-top: 20px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #2C698D;
+  background-color: #fff;
+  border-color: #ffffff #ffffff #2C698D;
+  border-bottom: solid 3px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+  color: #495057;
+  background-color: #fff;
 }
 
 a:-webkit-any-link {
@@ -30,8 +44,9 @@ a:-webkit-any-link {
   cursor: pointer;
 }
 
-.previous round {
-  color: black;
+.previous.round {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 
 .impact-container {
