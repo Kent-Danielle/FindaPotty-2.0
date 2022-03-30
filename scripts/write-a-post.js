@@ -46,6 +46,7 @@ function writePost() {
             diaper_station: childCheck,
             gender_neutral: transgenderCheck,
             isPublic: Public,
+            potty_pic: "",
           })
           .then((doc) => {
             console.log(doc.id);
