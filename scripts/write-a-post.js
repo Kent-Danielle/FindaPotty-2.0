@@ -22,9 +22,9 @@ function writePost() {
 
   let Public;
   if (document.getElementById("public").checked) {
-    Public = true;
+    Public = "public";
   } else {
-    Public = false;
+    Public = "private";
   }
 
   //console.log(Title, Location, Description, elderCheck, accessibleCheck, pregnantCheck, childCheck, transgenderCheck);

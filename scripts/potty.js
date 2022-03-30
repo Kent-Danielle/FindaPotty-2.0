@@ -17,7 +17,9 @@ async function loadPotty(pottyID, collection) {
   if (doc.data().potty_pic != null) {
     newcard.querySelector("#pottyImage").src = doc.data().potty_pic;
   }
-  
+
+  //public or private
+  newcard.getElementById("privacy").innerHTML = doc.data().isPublic
 
   //check for ratings
   for (n = 0; n < ratings; n++) {

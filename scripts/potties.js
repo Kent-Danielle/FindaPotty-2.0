@@ -13,7 +13,6 @@ function displayCards(collection) {
         var ratings = doc.data().ratings; //get potty ratings (integer)
         var starRatings = "";
         var features = "";
-        var privacy = "";
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update card
@@ -26,14 +25,7 @@ function displayCards(collection) {
         }
 
         //public or private
-        if (doc.data().isPublic) {
-          privacy =
-            "<p class='fit-content bg-info text-white p-1 rounded-3 fs-7'>public</p>";
-        } else {
-          privacy =
-            "<p class='fit-content bg-info text-white p-1 rounded-3 fs-7'>private</p>";
-        }
-        newcard.querySelector("#privacy").innerHTML = privacy;
+        newcard.getElementById("privacy").innerHTML = doc.data().isPublic
 
         //check for ratings
         for (n = 0; n < ratings; n++) {
