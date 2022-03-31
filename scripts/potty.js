@@ -29,6 +29,7 @@ async function loadPotty(pottyID, collection) {
   //update image
   if (doc.data().potty_pic != null) {
     newcard.querySelector("#pottyImage").src = doc.data().potty_pic;
+    displayPhotos(doc.data().potty_pic);
   }
 
   //public or private
@@ -73,6 +74,10 @@ async function displayDetails(detail, authorID) {
   let author = db.collection("Users").doc(authorID);
   let doc = await author.get();
   document.getElementById("author").innerText = doc.data().name;
+}
+
+function displayPhotos(picURL) {
+  document.getElementById("pottyPhotos").src = picURL;
 }
 
 function addBookmark() {
