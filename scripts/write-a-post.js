@@ -12,12 +12,13 @@ function writePost() {
   let Distance;
 
   if (distance1.checked) {
-    Distance = "< 100m";
+    Distance = "100m";
   }
   if (distance2.checked) {
-    Distance = "100-300m";
-  } else {
-    Distance = "> 300m";
+    Distance = "100m-300m";
+  } 
+  if (distance3.checked) {
+    Distance = "300m";
   }
 
   let Public;
