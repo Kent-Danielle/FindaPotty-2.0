@@ -1,5 +1,4 @@
 
-
 .link-spanner {
   position:absolute; 
   width:100%;
@@ -19,8 +18,9 @@
 }
 
 .card {
-  border-color: rgb(228, 226, 226) !important;
+  border-color: #ecebeb !important;
   border-radius: 1em;
+  box-shadow: 0 2px 6px 0 #eeeeee, 0 2px 6px 0 #eeeeee !important;
 }
 
 #pottyTitle {

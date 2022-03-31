@@ -8,25 +8,28 @@
   width: 100%;
 }
 
-.nav-tabs {
+/* .nav-tabs {
   border: 4px;
   border-bottom: 0 !important;
-}
+} */
 
-.nav-link {
+/* .nav-link {
   border-bottom: 2px solid black !important;
+} */
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+  color: var(--font-on-lighter);
 }
 
 .nav-link.active {
-  border-bottom: 0;
-  color: black !important;
-  border: 2px solid black !important;
-  border-bottom: none !important;
+  color: #2c698d !important;
+  border-color: #ffffff #ffffff #2c698d !important;
+  border-bottom: solid 0.3em !important;
 }
 
-.nav-link {
+/* .nav-link {
   color: gray !important;
-}
+} */
 
 .container-fluid {
   height: 80%;

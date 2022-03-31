@@ -63,7 +63,7 @@
       <input type="text" class="form-control bg-white" id="inputTitle" disabled />
     </div>
 
-    <h3 class="m-0 p-0 mt-4 fs-6">Distance from venue</h3>
+    <h3 class="m-0 p-0 mt-4 fs-6">Distance from Olympic venue</h3>
     <div class="d-flex justify-content-evenly  mt-2">
       <input type="radio" class="btn-check" name="options" id="distance1" autocomplete="off" checked />
       <label class="btn btn-outline-info fit-content" for="distance1">
@@ -108,11 +108,11 @@
     </div>
     <div class="form-check col-2 mt-4">
       <input class="form-check-input" type="radio" name="flexRadioDefault" id="public" checked />
-      <label class="form-check-label" for="public"> Yes </label>
+      <label class="form-check-label" for="public">Yes</label>
     </div>
     <div class="form-check col-2 mt-4">
       <input class="form-check-input" type="radio" name="flexRadioDefault" id="private" />
-      <label class="form-check-label" for="private"> No </label>
+      <label class="form-check-label" for="private">No</label>
     </div>
 
     <h3 class="m-0 p-0 mt-4 fs-6">Review</h3>
@@ -125,11 +125,11 @@
       <input type="file" class="form-control" id="potty-image" />
     </div>
 
-    <div class="col-12 mt-5">
-      <button type="button" onclick="writePost();" class="btn btn-primary" id="post-potty">
+    <div class="col-12 mt-5 d-flex" id="#post-cancel">
+      <button type="button" onclick="writePost();" class="btn btn-primary me-1" id="post-potty">
         Post
       </button>
-      <button type="button" class="btn btn-outline-primary">Cancel</button>
+      <button type="button" class="btn btn-outline-primary ms-1" id="cancel">Cancel</button>
     </div>
   </form>
 
