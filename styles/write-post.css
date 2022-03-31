@@ -57,6 +57,10 @@ body {
   margin-block-end: 1rem;
 }
 
+input, textarea {
+  border-radius: 0.5em !important;
+}
+
 /* NO JS */
 .rating--nojs::-moz-range-track {
   background: var(--fillbg);

@@ -17,3 +17,22 @@
 #detail-card {
   border-radius: 1rem;
 }
+
+.card {
+  border-color: rgb(228, 226, 226) !important;
+  border-radius: 1em;
+}
+
+#pottyTitle {
+  font-size: 1em;
+}
+
+.privacy {
+  margin: 0 !important;
+  margin-top: 1em !important;
+}
+
+.bg-info {
+  background-color: var(--darker-neutral-color) !important;
+  color: #272643 !important;
+}

@@ -24,11 +24,17 @@ nav {
 }
 
 footer {
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  /* border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem; */
   border: 0 !important;
   background-color: var(--secondary-color);
+  /* border-top: solid 0.7px #d4d4d4 !important; */
 }
+
+footer i  {
+  color: var(--neutral-color);
+}
+
 
 /* custom bootstrap INSPIRED styling */
 /* ---------------- */
@@ -92,4 +98,12 @@ footer {
 
 .fit-content {
   width: fit-content !important;
+}
+
+.likes-container {
+  text-align: center;
+}
+
+.clear {
+  height: 4.5em;
 }
