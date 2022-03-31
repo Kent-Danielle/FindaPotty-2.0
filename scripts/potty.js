@@ -100,6 +100,7 @@ function addBookmark() {
       }
     )
     .then(function () {
+      document.querySelector(".favorite").innerHTML = "bookmark"
       console.log("bookmark has been saved for: " + currentUser);
       db.collection("Potties").doc(pottyID).update({
         saved: true,
