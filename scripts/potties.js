@@ -21,7 +21,7 @@ function displayPotties(collection) {
         }
 
         //public or private
-        newcard.getElementById("privacy").innerHTML = doc.data().isPublic
+        newcard.getElementById("privacy").innerHTML = doc.data().isPublic;
 
         //check for ratings
         for (n = 0; n < ratings; n++) {
@@ -44,7 +44,7 @@ function displayPotties(collection) {
         newcard.querySelector(".features").innerHTML = features;
 
         //change heart icon according to saved state
-        if (doc.data().saved == true) {
+        if (doc.data().whoBookmarked.includes(currentUser.id)) {
           newcard.querySelector(".favorite").innerHTML = "bookmark";
         } else {
           newcard.querySelector(".favorite").innerHTML = "bookmark_border";
@@ -65,19 +65,18 @@ function setPottyData(id) {
 }
 
 function searchProduct() {
+  const searchInput = document.getElementById("filter").value.toUpperCase();
+  const cardContainer = document.getElementById("Potties-go-here");
 
-  const searchInput = document.getElementById('filter').value.toUpperCase();
-  const cardContainer = document.getElementById('Potties-go-here');
+  const cards = cardContainer.getElementsByClassName("card");
 
-  const cards = cardContainer.getElementsByClassName('card');
+  for (let i = 0; i < cards.length; i++) {
+    let title = cards[i].querySelector(".card-body h3.card-title");
 
-  for(let i = 0; i < cards.length; i++) {
-      let title = cards[i].querySelector(".card-body h3.card-title");
-
-      if(title.innerText.toUpperCase().indexOf(searchInput) > -1) {
-          cards[i].style.display = "";
-      } else {
-          cards[i].style.display = "none";
-      }
+    if (title.innerText.toUpperCase().indexOf(searchInput) > -1) {
+      cards[i].style.display = "";
+    } else {
+      cards[i].style.display = "none";
+    }
   }
 }

@@ -22,9 +22,9 @@ function writePost() {
 
   let Public;
   if (document.getElementById("public").checked) {
-    Public = "public";
+    Public = "Public";
   } else {
-    Public = "private";
+    Public = "Private";
   }
 
   //console.log(Title, Location, Description, elderCheck, accessibleCheck, pregnantCheck, childCheck, transgenderCheck);
@@ -48,6 +48,7 @@ function writePost() {
             isPublic: Public,
             potty_pic: "",
             saved: false,
+            whoBookmarked: [],
           })
           .then((doc) => {
             console.log(doc.id);

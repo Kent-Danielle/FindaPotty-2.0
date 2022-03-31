@@ -76,7 +76,7 @@ function displayPotties(collection) {
         newcard.querySelector(".features").innerHTML = features;
 
         //change heart icon according to saved state
-        if (doc.data().saved == true) {
+        if (doc.data().whoBookmarked.includes(currentUser.id)) {
           newcard.querySelector(".favorite").innerHTML = "bookmark";
         } else {
           newcard.querySelector(".favorite").innerHTML = "bookmark_border";
@@ -152,7 +152,7 @@ async function display(pottyID) {
   newcard.querySelector(".features").innerHTML = features;
 
   //change heart icon according to saved state
-  if (doc.data().saved == true) {
+  if (doc.data().whoBookmarked.includes(currentUser.id)) {
     newcard.querySelector(".favorite").innerHTML = "bookmark";
   } else {
     newcard.querySelector(".favorite").innerHTML = "bookmark_border";
@@ -162,3 +162,4 @@ async function display(pottyID) {
 
   document.getElementById("Bookmarks-go-here").appendChild(newcard);
 }
+

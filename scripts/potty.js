@@ -1,7 +1,11 @@
+var pottyID = localStorage.getItem("pottyID");
 var currentUser;
+var currentPotty;
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     currentUser = db.collection("Users").doc(user.uid); //global
+    currentPotty = db.collection("Potties").doc(pottyID); //global
+    loadPotty(pottyID, "Potties");
   } else {
     window.location.href = "login.html";
   }
@@ -51,7 +55,7 @@ async function loadPotty(pottyID, collection) {
   newcard.querySelector(".features").innerHTML = features;
 
   //change heart icon according to saved state
-  if (doc.data().saved == true) {
+  if (doc.data().whoBookmarked.includes(currentUser.id)) {
     newcard.querySelector(".favorite").innerHTML = "bookmark";
   } else {
     newcard.querySelector(".favorite").innerHTML = "bookmark_border";
@@ -59,14 +63,28 @@ async function loadPotty(pottyID, collection) {
 
   document.getElementById("detail").innerText = doc.data().detail;
 
+  displayDetails(doc.data().detail, doc.data().userID);
+
   document.getElementById("Potty-go-here").appendChild(newcard);
 }
 
-let pottyID = localStorage.getItem("pottyID");
-
-loadPotty(pottyID, "Potties");
+async function displayDetails(detail, authorID) {
+  document.getElementById("detail").innerText = detail;
+  let author = db.collection("Users").doc(authorID);
+  let doc = await author.get();
+  document.getElementById("author").innerText = doc.data().name;
+}
 
 function addBookmark() {
+  currentPotty.set(
+    {
+      whoBookmarked: firebase.firestore.FieldValue.arrayUnion(currentUser.id),
+    },
+    {
+      merge: true,
+    }
+  );
+
   currentUser
     .set(
       {
