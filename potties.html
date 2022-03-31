@@ -54,18 +54,15 @@
     </div>
 
     <!-- sorting -->
-    <div class="sort d-flex flex-row">
-        <h6 class="relevance ps-4 m-0 d-flex align-self-center">Sort: Relevance</h6>
-        <i class="material-icons">
-            <h1 class="m-0" >arrow_drop_down</h1>
-        </i>
-    </div>
-
+    <select id="list" class="ms-3 border-0" onchange="sort()">
+        <option value="rating">Rating</option>
+        <option value="distance">Distance</option>
+    </select>
     <!-- bathroom posts -->
     
-    <div id="Potties-go-here" class="container-fluid">
+    <div id="Potties-go-here" class="container-fluid"></div>
 
-        <template id="pottyTemplate">
+    <template id="pottyTemplate">
             <div class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative">
                 <a href="potty.html" id="potty"><span class="link-spanner"></span></a>
                 <div class="row g-0">
@@ -103,11 +100,7 @@
                     <p class="m-0 mt-1 likes-container">There are <span class="likes">5</span> people who found this post useful!</p>
                 </div>
             </div>
-        </template>
-
-    </div>
-
-        
+    </template>   
 
     <!-- footer -->
     <nav id="footerPlaceholder"></nav>

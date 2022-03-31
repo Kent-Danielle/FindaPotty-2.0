@@ -1,6 +1,25 @@
+var value = "ratings";
+
+function sort() {
+    let list = document.getElementById('list');
+    value = list.options[list.selectedIndex].text;
+    console.log("The selected value=" + value);
+
+    if(value == "Rating") {
+      value = "ratings"
+    }
+    if (value == "Distance") {
+      value = "distance";
+    }
+    document.getElementById("Potties-go-here").innerHTML = "";
+    displayPotties("Potties");
+}
+
 function displayPotties(collection) {
   let cardTemplate = document.getElementById("pottyTemplate");
+
   db.collection(collection)
+    .orderBy(value, "desc")
     .get()
     .then((snap) => {
       var i = 1;
