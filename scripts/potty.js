@@ -87,25 +87,48 @@ function displayPhotos(picURL) {
 }
 
 function addBookmark() {
-  currentPotty.set({
-    whoBookmarked: firebase.firestore.FieldValue.arrayUnion(currentUser.id),
-  }, {
-    merge: true,
-  });
-
-  currentUser
-    .set({
-      bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
+  if (document.querySelector(".favorite").innerHTML == 'bookmark_border') {
+    currentPotty.set({
+      whoBookmarked: firebase.firestore.FieldValue.arrayUnion(currentUser.id),
     }, {
       merge: true,
-    })
-    .then(function () {
-      document.querySelector(".favorite").innerHTML = "bookmark"
-      console.log("bookmark has been saved for: " + currentUser);
-      db.collection("Potties").doc(pottyID).update({
-        saved: true,
-      });
     });
+  
+    currentUser
+      .set({
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
+      }, {
+        merge: true,
+      })
+      .then(function () {
+        document.querySelector(".favorite").innerHTML = "bookmark"
+        console.log("bookmark has been saved for: " + currentUser);
+        db.collection("Potties").doc(pottyID).update({
+          saved: true,
+        });
+      });
+  } else {
+    currentPotty.set({
+      whoBookmarked: firebase.firestore.FieldValue.arrayRemove(currentUser.id),
+    }, {
+      merge: true,
+    });
+  
+    currentUser
+      .set({
+        bookmarks: firebase.firestore.FieldValue.arrayRemove(pottyID),
+      }, {
+        merge: true,
+      })
+      .then(function () {
+        document.querySelector(".favorite").innerHTML = "bookmark_border"
+        console.log("bookmark has been removed for: " + currentUser);
+        db.collection("Potties").doc(pottyID).update({
+          saved: false,
+        });
+      });
+  }
+
 }
 
 async function sendFeedback() {
