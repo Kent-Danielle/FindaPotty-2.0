@@ -46,7 +46,7 @@
 <body>
   <nav id="navbarPlaceholder"></nav>
 
-  <a class="back-button ms-2" href="./potties.html">
+  <a class="back-button ms-2" onclick="history.back()">
     <i class="fa fa-angle-left fs-1"></i></a>
 
   <div class="container-fluid m-0">
@@ -81,6 +81,19 @@
         </div>
       </template>
     </div>
+
+    <div class="helpful d-flex justify-content-center">
+      <div class="card mb-1 w-75">
+        <div class="card-body d-flex justify-content-center">
+          Did you find this helpful?
+          <span class="ms-2">
+            <input class="form-check-input" type="checkbox" value="" id="helpful-checkbox" onchange="sendFeedback()">
+            <label class="form-check-label" for="helpful-checkbox">Yes</label>
+          </span>
+        </div>
+      </div>
+    </div>
+
 
     <div class="post-tabs row mx-1">
       <ul class="nav nav-tabs p-0" id="myTab" role="tablist">
