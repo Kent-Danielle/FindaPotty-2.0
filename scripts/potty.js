@@ -61,6 +61,12 @@ async function loadPotty(pottyID, collection) {
   } else {
     newcard.querySelector(".favorite").innerHTML = "bookmark_border";
   }
+  
+  if (doc.data().whoRecommended.includes(currentUser.id)) {
+    document.getElementById("helpful-checkbox").checked = true;
+  } else {
+    document.getElementById("helpful-checkbox").checked = false;
+  }
 
   document.getElementById("detail").innerText = doc.data().detail;
 
@@ -81,24 +87,18 @@ function displayPhotos(picURL) {
 }
 
 function addBookmark() {
-  currentPotty.set(
-    {
-      whoBookmarked: firebase.firestore.FieldValue.arrayUnion(currentUser.id),
-    },
-    {
-      merge: true,
-    }
-  );
+  currentPotty.set({
+    whoBookmarked: firebase.firestore.FieldValue.arrayUnion(currentUser.id),
+  }, {
+    merge: true,
+  });
 
   currentUser
-    .set(
-      {
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
-      },
-      {
-        merge: true,
-      }
-    )
+    .set({
+      bookmarks: firebase.firestore.FieldValue.arrayUnion(pottyID),
+    }, {
+      merge: true,
+    })
     .then(function () {
       document.querySelector(".favorite").innerHTML = "bookmark"
       console.log("bookmark has been saved for: " + currentUser);
@@ -106,4 +106,60 @@ function addBookmark() {
         saved: true,
       });
     });
+}
+
+async function sendFeedback() {
+  var checkbox = document.getElementById("helpful-checkbox");
+
+  const increment = firebase.firestore.FieldValue.increment(1);
+  const decrement = firebase.firestore.FieldValue.increment(-1);
+
+  var doc = await currentPotty.get();
+  var whoRecommended = doc.data().whoRecommended;
+
+  if (whoRecommended.includes(currentUser.id)) {
+    if (checkbox.checked) {
+      console.log("Increasing");
+      currentPotty.update({
+        like: increment,
+      });
+    } else if (!checkbox.checked) {
+      //u remove it here then decrement hehe
+      currentPotty
+        .set(
+          {
+            whoRecommended: firebase.firestore.FieldValue.arrayRemove(
+              currentUser.id
+            ),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log("Decreasing");
+          currentPotty.update({
+            like: decrement,
+          });
+        });
+    }
+  } else {
+    currentPotty
+      .set(
+        {
+          whoRecommended: firebase.firestore.FieldValue.arrayUnion(
+            currentUser.id
+          ),
+        },
+        {
+          merge: true,
+        }
+      )
+      .then(function () {
+        console.log("Added user");
+        currentPotty.update({
+          like: increment,
+        });
+      });
+  }
 }

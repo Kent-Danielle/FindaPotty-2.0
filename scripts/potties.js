@@ -99,3 +99,18 @@ function searchProduct() {
     }
   }
 }
+
+// function indicator() {
+  var b = localStorage.getItem("myValue");
+  if (b == "clicked") {
+    document.getElementById('indicator').style.display = "flex";
+    document.getElementById('indicator').style.justifyContent = "center";
+  }
+  var resetValue = "";
+  console.log(b);
+
+  setTimeout(function(){ 
+    document.getElementById('indicator').style.display = "none";
+    localStorage.setItem("myValue", resetValue);
+}, 5000);
+// }

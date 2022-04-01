@@ -83,3 +83,9 @@ function storeImage(pottyid, pickedfile) {
       });
   });
 }
+
+document.getElementById('post-potty').addEventListener("click", () => {
+  var a = "clicked";
+  localStorage.setItem("myValue", a);
+});
+
