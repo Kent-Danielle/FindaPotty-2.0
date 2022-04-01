@@ -144,7 +144,7 @@ async function sendFeedback() {
     if (checkbox.checked) {
       console.log("Increasing");
       currentPotty.update({
-        like: increment,
+        likes: increment,
       });
     } else if (!checkbox.checked) {
       //u remove it here then decrement hehe
@@ -162,7 +162,7 @@ async function sendFeedback() {
         .then(function () {
           console.log("Decreasing");
           currentPotty.update({
-            like: decrement,
+            likes: decrement,
           });
         });
     }
@@ -181,7 +181,7 @@ async function sendFeedback() {
       .then(function () {
         console.log("Added user");
         currentPotty.update({
-          like: increment,
+          likes: increment,
         });
       });
   }
