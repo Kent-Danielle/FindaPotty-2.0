@@ -50,6 +50,8 @@ function writePost() {
             potty_pic: "",
             saved: false,
             whoBookmarked: [],
+            whoRecommended: [],
+            likes: 0,
           })
           .then((doc) => {
             console.log(doc.id);
