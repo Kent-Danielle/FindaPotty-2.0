@@ -82,6 +82,12 @@ function displayPotties(collection) {
           newcard.querySelector(".favorite").innerHTML = "bookmark_border";
         }
 
+        if (doc.data().likes > 1) {
+          newcard.querySelector(".likes").innerHTML = doc.data().likes;
+        } else {
+          newcard.getElementById("likes-row").style.display = "none";
+        }
+
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
 
@@ -158,8 +164,13 @@ async function display(pottyID) {
     newcard.querySelector(".favorite").innerHTML = "bookmark_border";
   }
 
+  if (doc.data().likes > 1) {
+    newcard.querySelector(".likes").innerHTML = doc.data().likes;
+  } else {
+    newcard.getElementById("likes-row").style.display = "none";
+  }
+
   newcard.querySelector(".link-spanner").onclick = () => setPottyData(doc.id);
 
   document.getElementById("Bookmarks-go-here").appendChild(newcard);
 }
-

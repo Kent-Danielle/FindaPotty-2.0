@@ -1,25 +1,26 @@
 var value = "ratings";
+var order = "desc";
 
 function sort() {
-    let list = document.getElementById('list');
-    value = list.options[list.selectedIndex].text;
-    console.log("The selected value=" + value);
+  let list = document.getElementById("list");
+  value = list.options[list.selectedIndex].value;
+  console.log("The selected value=" + value);
 
-    if(value == "Rating") {
-      value = "ratings"
-    }
-    if (value == "Distance") {
-      value = "distance";
-    }
-    document.getElementById("Potties-go-here").innerHTML = "";
-    displayPotties("Potties");
+  if (value == "distance") {
+    order = "asc";
+  } else {
+    order = "desc";
+  }
+
+  document.getElementById("Potties-go-here").innerHTML = "";
+  displayPotties("Potties");
 }
 
 function displayPotties(collection) {
   let cardTemplate = document.getElementById("pottyTemplate");
 
   db.collection(collection)
-    .orderBy(value, "desc")
+    .orderBy(value, order)
     .get()
     .then((snap) => {
       var i = 1;
@@ -69,6 +70,12 @@ function displayPotties(collection) {
           newcard.querySelector(".favorite").innerHTML = "bookmark_border";
         }
 
+        if (doc.data().likes > 1) {
+          newcard.querySelector(".likes").innerHTML = doc.data().likes;
+        } else {
+          newcard.getElementById("likes-row").style.display =
+            "none";
+        }
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
 
@@ -101,16 +108,16 @@ function searchProduct() {
 }
 
 // function indicator() {
-  var b = localStorage.getItem("myValue");
-  if (b == "clicked") {
-    document.getElementById('indicator').style.display = "flex";
-    document.getElementById('indicator').style.justifyContent = "center";
-  }
-  var resetValue = "";
-  console.log(b);
+var b = localStorage.getItem("myValue");
+if (b == "clicked") {
+  document.getElementById("indicator").style.display = "flex";
+  document.getElementById("indicator").style.justifyContent = "center";
+}
+var resetValue = "";
+console.log(b);
 
-  setTimeout(function(){ 
-    document.getElementById('indicator').style.display = "none";
-    localStorage.setItem("myValue", resetValue);
+setTimeout(function () {
+  document.getElementById("indicator").style.display = "none";
+  localStorage.setItem("myValue", resetValue);
 }, 5000);
 // }
