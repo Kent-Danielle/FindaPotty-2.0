@@ -16,7 +16,7 @@ function writePost() {
   }
   if (distance2.checked) {
     Distance = "100m-300m";
-  } 
+  }
   if (distance3.checked) {
     Distance = "300m";
   }
@@ -48,10 +48,10 @@ function writePost() {
             gender_neutral: transgenderCheck,
             isPublic: Public,
             potty_pic: "",
-            saved: false,
             whoBookmarked: [],
             whoRecommended: [],
             likes: 0,
+            date_posted: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then((doc) => {
             console.log(doc.id);
@@ -86,8 +86,7 @@ function storeImage(pottyid, pickedfile) {
   });
 }
 
-document.getElementById('post-potty').addEventListener("click", () => {
+document.getElementById("post-potty").addEventListener("click", () => {
   var a = "clicked";
   localStorage.setItem("myValue", a);
 });
-

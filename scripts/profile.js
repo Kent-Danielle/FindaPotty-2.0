@@ -22,9 +22,10 @@ function insertNameAndDate() {
   currentUser.get().then((userDoc) => {
     //get the user name
     var user_Name = userDoc.data().name;
-    var user_Date = userDoc.data().join_date;
+    var user_Date = userDoc.data().join_date.toDate().toDateString();
+    var user_JoinDate = "Joined: " + user_Date;
     $("#username").text(user_Name); //jquery
-    // $("#userdate").text(user_Date); //jquery
+    $("#userdate").text(user_JoinDate); //jquery
   });
 }
 
