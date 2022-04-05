@@ -61,6 +61,15 @@ input, textarea {
   border-radius: 0.5em !important;
 }
 
+textarea {
+  height: 7em;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #c6c4c4 !important;
+  opacity: 1; /* Firefox */
+}
+
 .btn-check:active+.btn-outline-info, .btn-check:checked+.btn-outline-info, 
 .btn-outline-info.active, .btn-outline-info.dropdown-toggle.show, .btn-outline-info:active {
   color: #272643;
@@ -69,8 +78,8 @@ input, textarea {
 }
 
 .btn-outline-info {
-  color: #676767;
-  border-color: #676767;
+  color: #999898;
+  border-color: #999898;
 }
 
 .btn-outline-info:hover {
@@ -80,26 +89,26 @@ input, textarea {
 }
 
 .btn-outline-primary {
-  color: #272643;
-  border-color: #272643;
+  color: #676767;
+  border-color: #676767;
 }
 
 .btn-primary {
-  color: #272643;
-  background-color: #bae8e8;
-  border-color: #bae8e8;
+  color: #ffffff;
+  background-color: #fca311;
+  border-color: #fca311;
 }
 
 .btn-primary:hover {
-  color: #272643;
-  background-color: #bae8e8;
-  border-color: #bae8e8;
+  color: #ffffff;
+  background-color: #fca311;
+  border-color: #fca311;
 }
 
 .btn-outline-primary:hover {
   color: #272643;
   background-color: #ffffff;
-  border-color: #272643;
+  border-color: #676767;
 }
 
 #post-potty {
