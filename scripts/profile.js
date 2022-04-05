@@ -55,7 +55,6 @@ function displayPotties(collection) {
 
         //public or private
         newcard.getElementById("privacy").innerHTML = doc.data().isPublic;
-        
 
         //check for ratings
         for (n = 0; n < ratings; n++) {
@@ -89,6 +88,17 @@ function displayPotties(collection) {
         } else {
           newcard.getElementById("likes-row").style.display = "none";
         }
+
+        let distance;
+        if (doc.data().distance == "100m") {
+          distance = "< " + doc.data().distance;
+        } else if (doc.data().distance == "300m") {
+          distance = "> " + doc.data().distance;
+        } else {
+          distance = doc.data().distance;
+        }
+
+        newcard.getElementById("distance").innerHTML = distance;
 
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
@@ -172,7 +182,16 @@ async function display(pottyID) {
     newcard.getElementById("likes-row").style.display = "none";
   }
 
-  newcard.getElementById("distance").innerHTML = doc.data().distance;
+  let distance;
+  if (doc.data().distance == "100m") {
+    distance = "< " + doc.data().distance;
+  } else if (doc.data().distance == "300m") {
+    distance = "> " + doc.data().distance;
+  } else {
+    distance = doc.data().distance;
+  }
+
+  newcard.getElementById("distance").innerHTML = distance;
 
   newcard.querySelector(".link-spanner").onclick = () => setPottyData(doc.id);
 

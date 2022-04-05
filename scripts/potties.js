@@ -76,9 +76,17 @@ function displayPotties(collection) {
           newcard.getElementById("likes-row").style.display =
             "none";
         }
-
-        newcard.getElementById("distance").innerHTML = doc.data().distance;
-
+        
+        let distance;
+        if (doc.data().distance == "100m") {
+          distance = "< " + doc.data().distance;
+        } else if (doc.data().distance == "300m") {
+          distance = "> " + doc.data().distance;
+        } else {
+          distance = doc.data().distance;
+        }
+      
+        newcard.getElementById("distance").innerHTML = distance;
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
 
