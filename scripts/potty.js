@@ -68,6 +68,8 @@ async function loadPotty(pottyID, collection) {
     document.getElementById("helpful-checkbox").checked = false;
   }
 
+  newcard.getElementById("distance").innerHTML = doc.data().distance;
+
   document.getElementById("detail").innerText = doc.data().detail;
   document.getElementById("date_created").innerText = doc
     .data()

@@ -76,6 +76,9 @@ function displayPotties(collection) {
           newcard.getElementById("likes-row").style.display =
             "none";
         }
+
+        newcard.getElementById("distance").innerHTML = doc.data().distance;
+
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
 
@@ -90,6 +93,7 @@ function setPottyData(id) {
   localStorage.setItem("pottyID", id);
 }
 
+// Credits: https://www.youtube.com/watch?v=RVrHC__Tkx0&ab_channel=ABNationProgrammers
 function searchProduct() {
   const searchInput = document.getElementById("filter").value.toUpperCase();
   const cardContainer = document.getElementById("Potties-go-here");
@@ -119,5 +123,5 @@ console.log(b);
 setTimeout(function () {
   document.getElementById("indicator").style.display = "none";
   localStorage.setItem("myValue", resetValue);
-}, 5000);
+}, 3000);
 // }

@@ -55,6 +55,7 @@ function displayPotties(collection) {
 
         //public or private
         newcard.getElementById("privacy").innerHTML = doc.data().isPublic;
+        
 
         //check for ratings
         for (n = 0; n < ratings; n++) {
@@ -170,6 +171,8 @@ async function display(pottyID) {
   } else {
     newcard.getElementById("likes-row").style.display = "none";
   }
+
+  newcard.getElementById("distance").innerHTML = doc.data().distance;
 
   newcard.querySelector(".link-spanner").onclick = () => setPottyData(doc.id);
 
