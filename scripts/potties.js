@@ -124,4 +124,4 @@ setTimeout(function () {
   document.getElementById("indicator").style.display = "none";
   localStorage.setItem("myValue", resetValue);
 }, 3000);
-// }
+
