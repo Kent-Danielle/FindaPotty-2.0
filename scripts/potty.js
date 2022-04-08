@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged((user) => {
     currentPotty = db.collection("Potties").doc(pottyID); //global
     loadPotty(pottyID, "Potties");
   } else {
-    window.location.href = "login.html";
+    window.location.href = "./index.html";
   }
 });
 

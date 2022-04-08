@@ -1,5 +1,5 @@
-var value = "ratings";
-var order = "desc";
+var value = "distance";
+var order = "asc";
 
 function sort() {
   let list = document.getElementById("list");

@@ -3,7 +3,6 @@ var currentUser;
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     currentUser = db.collection("Users").doc(user.uid); //global
-    console.log(currentUser);
 
     // the following functions are always called when someone is logged in
     insertNameAndDate();
@@ -12,7 +11,7 @@ firebase.auth().onAuthStateChanged((user) => {
   } else {
     // No user is signed in.
     console.log("No user is signed in");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 });
 
@@ -122,7 +121,6 @@ function displayBookmarks(user) {
 
       bookmarks.forEach((pottyID) => {
         display(pottyID);
-        console.log(pottyID);
       });
     });
 }
