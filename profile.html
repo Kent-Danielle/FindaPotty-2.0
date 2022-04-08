@@ -69,15 +69,15 @@
   </head>
 
   <body>
-    <!-- nav -->
-    <!-- <nav id="navbarPlaceholder"></nav> -->
-
+    <!-- Container for the content. -->
     <div class="container">
       <div class="d-flex justify-content-between">
+        <!-- Back button. -->
         <a class="back-button ms-2" onclick="history.back()">
           <i class="fa fa-angle-left fs-1 text-secondary"></i
         ></a>
 
+        <!-- Logout button. -->
         <button
           id="logout"
           class="btn-secondary rounded fs-7"
@@ -87,15 +87,16 @@
         </button>
       </div>
 
-      <!-- header -->
+      <!-- User info. -->
       <div class="user-info text-center flex-column align-content-center">
         <i id="user" class="fa fa-solid fa-circle-user"></i>
         <h3 id="username" class="text-center">User ID: pottyuser123</h3>
         <h3 id="userdate" class="text-center">Joined Date: Mar 6, 2022</h3>
       </div>
 
-      <!-- information -->
+      <!-- My impact section. -->
       <div class="my-impact h-1004">
+        <!-- My impact tab buttons -->
         <ul
           class="nav nav-tabs justify-content-center nav-fill"
           id="myTab"
@@ -145,7 +146,9 @@
           </li>
         </ul>
 
+        <!-- Individual tab contents. -->
         <div class="tab-content" id="myTabContent">
+          <!-- Bookmarks tab. -->
           <div
             class="tab-pane px-0 fade show active"
             id="bookmarks"
@@ -153,6 +156,8 @@
             aria-labelledby="bookmarks-tab"
           >
             <div id="Bookmarks-go-here" class="container-fluid">
+              
+              <!-- Template for potty cards. -->
               <template id="pottyTemplate">
                 <div
                   class="card border-1 border-secondary bg-neutral shadow-sm my-2 p-1 py-2 position-relative"
@@ -161,6 +166,7 @@
                     ><span class="link-spanner"></span
                   ></a>
                   <div class="row g-0">
+                    <!-- Template for potty cards. -->
                     <div class="col-5 d-flex align-items-center">
                       <img
                         id="pottyImage"
@@ -170,16 +176,19 @@
                       />
                     </div>
                     <div class="col-7">
+                      <!-- Bookmark icon. -->
                       <i
                         class="favorite text-secondary material-icons float-end me-2 mt-2"
                       ></i>
                       <div class="card-body p-2" id="potty-card">
+                        <!-- Washroom title. -->
                         <h3
                           id="pottyTitle"
                           class="card-title text-accent fw-bold m-0"
                         >
                           Card title
                         </h3>
+                        <!-- Privacy and distance. -->
                         <div class="privacy my-0 row">
                           <p
                             id="privacy"
@@ -192,14 +201,15 @@
                             class="col d-flex justify-content-end text-lighter fs-7"
                           ></p>
                         </div>
-
+                        <!-- Ratings. -->
                         <div id="rating" class="rating mb-2 mt-0"></div>
-
+                        <!-- Features. -->
                         <div class="features m-0"></div>
                       </div>
                     </div>
                   </div>
                   <div class="row" id="likes-row">
+                    <!-- Number of recommendation. -->
                     <p class="m-0 mt-1 likes-container">
                       There are <span class="likes">5</span> people who found
                       this post useful!
@@ -210,6 +220,7 @@
             </div>
           </div>
 
+          <!-- My posts tab. -->
           <div
             class="tab-pane px-0 h-75 fade"
             id="myposts"
@@ -219,6 +230,7 @@
             <div id="Potties-go-here" class="container-fluid px-1"></div>
           </div>
 
+          <!-- My reviews tab. -->
           <div
             class="tab-pane p-3 h-75 fade"
             id="reviews"
@@ -235,6 +247,9 @@
     <!-- footer -->
     <nav id="footerPlaceholder"></nav>
 
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM22.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>

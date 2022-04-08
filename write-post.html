@@ -64,16 +64,10 @@
   </head>
 
   <body>
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-
-    <!-- our own navbar goes here -->
-    <!-- <nav id="navbarPlaceholder"></nav> -->
-
     <!-- the body of your page goes here -->
     <h1 class="text-center m-0 p-0">Post-a-Potty</h1>
     <form action="" class="row g-0 m-3">
+      <!-- Title prompt. -->
       <div class="col-12">
         <label for="inputTitle" class="form-label">
           <h3 class="m-0 p-0 fs-6">Title</h3>
@@ -85,6 +79,8 @@
           id="inputTitle"
         />
       </div>
+      
+      <!-- Location picker placeholder. -->
       <div class="col-12 mt-4">
         <label for="inputTitle" class="form-label">
           <h3 class="m-0 p-0 fs-6" id="location">Location</h3>
@@ -98,6 +94,7 @@
       </div>
 
       <h3 class="m-0 p-0 mt-4 fs-6">Distance from Olympic Village</h3>
+      <!-- Distance prompt. -->
       <div class="d-flex justify-content-evenly mt-2">
         <input
           type="radio"
@@ -120,7 +117,6 @@
         <label class="btn btn-outline-info fit-content" for="distance2"
           >100-300m</label
         >
-
         <input
           type="radio"
           class="btn-check"
@@ -133,8 +129,8 @@
         >
       </div>
 
+      <!-- Rating prompt. -->
       <h3 class="m-0 p-0 mt-4 fs-6">Select overall rating</h3>
-      <!-- <p class="m-0 p-0 ms-2 fs-7 text-lighter">Select overall rating.</p> -->
       <div class="col-12 d-flex justify-content-center mt-2">
         <label class="rating-label">
           <input
@@ -149,6 +145,7 @@
         </label>
       </div>
 
+      <!-- Features prompt. -->
       <h3 class="m-0 p-0 mt-4 fs-6">Accessibility Features</h3>
       <div class="form-check col-12 ms-2 mt-2">
         <input
@@ -184,6 +181,7 @@
         </label>
       </div>
 
+      <!-- Washroom privacy prompt. -->
       <div class="col-8 mt-4">
         <h3 class="fs-6">Is it a public washroom?</h3>
       </div>
@@ -207,6 +205,7 @@
         <label class="form-check-label" for="private">No</label>
       </div>
 
+      <!-- Detailed directions prompt. -->
       <h3 class="m-0 p-0 mt-4 fs-6">Detailed Directions</h3>
       <div class="input-group mt-2">
         <textarea
@@ -218,12 +217,15 @@
         ></textarea>
       </div>
 
+      <!-- File upload. -->
       <h3 class="m-0 p-0 mt-4 fs-6">Add a photo</h3>
       <div class="input-group mb-3 mt-2">
         <input type="file" class="form-control" id="potty-image" />
       </div>
 
+      
       <div class="col-12 mt-5 d-flex" id="#post-cancel">
+        <!-- Post button. -->
         <button
           type="button"
           onclick="writePost();"
@@ -232,6 +234,7 @@
         >
           Post
         </button>
+        <!-- Cancel button. -->
         <button
           type="button"
           class="btn btn-outline-primary ms-1"
@@ -246,7 +249,7 @@
     <!-- to unhide content from footer -->
     <div class="clear"></div>
 
-    <!-- our own footer goes here-->
+    <!-- footer -->
     <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->

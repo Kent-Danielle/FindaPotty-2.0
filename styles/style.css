@@ -1,3 +1,7 @@
+/*------------
+ * Fonts used
+ *------------
+ */
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 
 @font-face {
@@ -5,6 +9,10 @@
   src: url("/fonts/Gilroy-ExtraBold.otf");
 }
 
+/*----------------
+ * Color palette
+ *----------------
+ */
 :root {
   --neutral-color: #ffffff;
   --darker-neutral-color: #eeeeee;
@@ -16,6 +24,10 @@
   --font-on-dark: #fffff8;
 }
 
+/*----------------
+ * Element styling 
+ *----------------
+ */
 body {
   font-family: "Source Sans Pro", sans-serif;
   background-color: var(--neutral-color);
@@ -35,25 +47,27 @@ h3 {
   font-weight: 600;
 }
 
-/* template styling */
+/*----------------
+ * Template styling 
+ *----------------
+ */
 nav {
   background-color: var(--neutral-color);
 }
 
 footer {
-  /* border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem; */
   border: 0 !important;
   background-color: var(--secondary-color);
-  /* border-top: solid 0.7px #d4d4d4 !important; */
 }
 
 footer i {
   color: var(--neutral-color);
 }
 
-/* custom bootstrap INSPIRED styling */
-/* ---------------- */
+/*---------------------------
+ * Bootstrap-inspired Styling
+ *---------------------------
+ */
 
 /* fontsizes */
 .fs-7 {
@@ -108,6 +122,10 @@ footer i {
   color: var(--font-on-lighter);
 }
 
+/*----------------
+ * Misc. styling 
+ *----------------
+ */
 .display-none {
   display: none !important;
 }
@@ -116,6 +134,10 @@ footer i {
   width: fit-content !important;
 }
 
+/*----------------
+ * Potties styling 
+ *----------------
+ */
 .likes-container {
   text-align: center;
 }

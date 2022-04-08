@@ -31,7 +31,8 @@ A web application to help people with special needs to find bathrooms that can a
 
 Technologies used for this project:
 * HTML, CSS
-* JavaScript, JSON
+* JavaScript 
+* JQuery
 * Bootstrap
 * Firebase and Firestore 
 
@@ -90,9 +91,9 @@ Firebase hosting files:
 ```
 
 ## Resources
-- In-app icons from Feather v4.28.0 (Open Source https://feathericons.com/)
 - Logo homemade!
 - Search function (https://www.youtube.com/watch?v=RVrHC__Tkx0&ab_channel=ABNationProgrammers)
+- Star rating slider (https://dev.to/madsstoumann/star-rating-using-a-single-input-i0l)
 
 ## Contact 
 * Kent - kconcengco@my.bcit.ca
@@ -102,8 +103,3 @@ Firebase hosting files:
 ## Acknowledgements 
 * <a href="https://fonts.google.com/">Google Fonts</a>
 * <a href="https://getbootstrap.com/">Bootstrap</a>
-
-Tips for file naming files and folders:
-
-- use lowercase with no spaces
-- use dashes (not underscore) for word separation

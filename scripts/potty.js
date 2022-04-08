@@ -1,21 +1,27 @@
+//Fetch localStorage and assign it to a variable
 var pottyID = localStorage.getItem("pottyID");
+
+//---------------------------------------------------------
+// function to get a global variable for the user and potty
+//---------------------------------------------------------
 var currentUser;
 var currentPotty;
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     currentUser = db.collection("Users").doc(user.uid); //global
     currentPotty = db.collection("Potties").doc(pottyID); //global
-    loadPotty(pottyID, "Potties");
+    loadPotty(pottyID);
   } else {
     window.location.href = "./index.html";
   }
 });
 
-async function loadPotty(pottyID, collection) {
+async function loadPotty(pottyID) {
   let cardTemplate = document.getElementById("pottyTemplate");
 
-  let pottyRef = db.collection(collection).doc(pottyID);
+  let pottyRef = db.collection("Potties").doc(pottyID);
   const doc = await pottyRef.get();
+
   var title = doc.data().title; //get potty title
   var ratings = doc.data().ratings; //get potty ratings (integer)
   var starRatings = "";
@@ -55,19 +61,21 @@ async function loadPotty(pottyID, collection) {
   }
   newcard.querySelector(".features").innerHTML = features;
 
-  //change heart icon according to saved state
+  //change bookmark icon according to saved state
   if (doc.data().whoBookmarked.includes(currentUser.id)) {
     newcard.querySelector(".favorite").innerHTML = "bookmark";
   } else {
     newcard.querySelector(".favorite").innerHTML = "bookmark_border";
   }
 
+  //checks or unchecks the recommendation prompt
   if (doc.data().whoRecommended.includes(currentUser.id)) {
     document.getElementById("helpful-checkbox").checked = true;
   } else {
     document.getElementById("helpful-checkbox").checked = false;
   }
 
+  //displays the distance
   let distance;
   if (doc.data().distance == "100m") {
     distance = "< " + doc.data().distance;
@@ -92,6 +100,9 @@ async function loadPotty(pottyID, collection) {
   document.getElementById("Potty-go-here").appendChild(newcard);
 }
 
+//---------------------------------------
+// Display the details on the details tab
+//---------------------------------------
 async function displayDetails(detail, authorID) {
   document.getElementById("detail").innerText = detail;
   let author = db.collection("Users").doc(authorID);
@@ -99,11 +110,17 @@ async function displayDetails(detail, authorID) {
   document.getElementById("author").innerText = doc.data().name;
 }
 
+//---------------------------------------
+// Display the photos on the photos tab
+//---------------------------------------
 function displayPhotos(picURL) {
   document.getElementById("pottyPhotos").src = picURL;
 }
 
-function addBookmark() {
+//---------------------------------------
+// function to add or remove a bookmark
+//---------------------------------------
+function bookmark() {
   if (document.querySelector(".favorite").innerHTML == "bookmark_border") {
     currentPotty.set(
       {
@@ -161,6 +178,9 @@ function addBookmark() {
   }
 }
 
+//--------------------------------------------------------------------------
+// Increments the number of likes when the Recommendation prompt is checked
+//--------------------------------------------------------------------------
 async function sendFeedback() {
   var checkbox = document.getElementById("helpful-checkbox");
 

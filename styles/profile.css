@@ -1,65 +1,18 @@
+/*----------------
+ * Element styling 
+ *----------------
+ */
 body {
+  margin: 5% 0 0;
+  background-color: var(--neutral-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background-color: var(--neutral-color);
-    margin: 5% 0 0;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-#logout {
-  border-style: none;
-  background-color: #ffffff;
-  color: var(--font-on-lighter);
-  border: solid 1px;
-  height: 24px !important;
-}
-
-#username, #userdate {
-  font-size: 0.9em;
-}
-
-#user {
-  font-size: 80px;
-  margin: 10px;
-}
-
-#bookmarks-tab, #myposts-tab, #reviews-tab {
-  font-size: 15px !important;
-}
-
-.nav {
-  margin-top: 2em;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  color: var(--secondary-color);
-  border-color: #ffffff #ffffff var(--secondary-color);
-  border-bottom: solid 0.3em;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
-  color: var(--font-on-lighter);
-}
-
-a:-webkit-any-link {
-  color: black;
-  cursor: pointer;
-}
-
-.previous.round {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-}
-
-.impact-container {
-  width: 100%;
-}
-
+/*----------------
+ * Card styling 
+ *----------------
+ */
 .card {
   border-radius: 1em;
 }
@@ -69,14 +22,78 @@ a:-webkit-any-link {
 }
 
 .link-spanner {
-  position:absolute; 
-  width:100%;
-  height:100%;
-  top:0;
+  position: absolute;
+  top: 0;
   left: 0;
   z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 
 .likes-container {
   text-align: center;
+}
+
+/*----------------
+ * Tab styling 
+ *----------------
+ */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#logout {
+  border: solid 1px;
+  border-style: none;
+  background-color: #ffffff;
+  height: 24px !important;
+  color: var(--font-on-lighter);
+}
+
+#username,
+#userdate {
+  font-size: 0.9em;
+}
+
+#user {
+  margin: 10px;
+  font-size: 80px;
+}
+
+#bookmarks-tab,
+#myposts-tab,
+#reviews-tab {
+  font-size: 15px !important;
+}
+
+.nav {
+  margin-top: 2em;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  border-bottom: solid 0.3em;
+  border-color: #ffffff #ffffff var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link {
+  color: var(--font-on-lighter);
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+  color: black;
+}
+
+.previous.round {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.impact-container {
+  width: 100%;
 }

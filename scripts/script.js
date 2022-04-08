@@ -1,4 +1,3 @@
-// function to get a global variable for the user
 var currentUser;
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -6,15 +5,15 @@ firebase.auth().onAuthStateChanged((user) => {
 
     // the following functions are always called when someone is logged in
   } else {
-    // No user is signed in.
+    // Redirect user if no one is logged in
     window.location.href = "./index.html";
   }
 });
 
 
-//------------------------------------------------
+//--------------------------------------------------------
 // Call this function when the "logout" button is clicked
-//-------------------------------------------------
+//--------------------------------------------------------
 function logout() {
   firebase.auth().signOut().then(() => {
       // Sign-out successful.

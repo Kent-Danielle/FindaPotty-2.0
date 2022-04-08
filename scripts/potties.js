@@ -1,6 +1,10 @@
+//Default sorting values
 var value = "distance";
 var order = "asc";
 
+//-----------------------------------
+// Function to sort the list of posts
+//-----------------------------------
 function sort() {
   let list = document.getElementById("list");
   value = list.options[list.selectedIndex].value;
@@ -13,20 +17,20 @@ function sort() {
   }
 
   document.getElementById("Potties-go-here").innerHTML = "";
-  displayPotties("Potties");
+  displayPotties();
 }
 
-function displayPotties(collection) {
+function displayPotties() {
   let cardTemplate = document.getElementById("pottyTemplate");
 
-  db.collection(collection)
+  db.collection("Potties")
     .orderBy(value, order)
     .get()
     .then((snap) => {
       var i = 1;
       snap.forEach((doc) => {
-        var title = doc.data().title; //get potty title
-        var ratings = doc.data().ratings; //get potty ratings (integer)
+        var title = doc.data().title;
+        var ratings = doc.data().ratings;
         var starRatings = "";
         var features = "";
         let newcard = cardTemplate.content.cloneNode(true);
@@ -63,20 +67,21 @@ function displayPotties(collection) {
         }
         newcard.querySelector(".features").innerHTML = features;
 
-        //change heart icon according to saved state
+        //change bookmark icon according to saved state
         if (doc.data().whoBookmarked.includes(currentUser.id)) {
           newcard.querySelector(".favorite").innerHTML = "bookmark";
         } else {
           newcard.querySelector(".favorite").innerHTML = "bookmark_border";
         }
 
+        //display number of likes
         if (doc.data().likes > 1) {
           newcard.querySelector(".likes").innerHTML = doc.data().likes;
         } else {
-          newcard.getElementById("likes-row").style.display =
-            "none";
+          newcard.getElementById("likes-row").style.display = "none";
         }
-        
+
+        //displays the distance
         let distance;
         if (doc.data().distance == "100m") {
           distance = "< " + doc.data().distance;
@@ -85,22 +90,21 @@ function displayPotties(collection) {
         } else {
           distance = doc.data().distance;
         }
-      
+
         newcard.getElementById("distance").innerHTML = distance;
+
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
 
-        document.getElementById(collection + "-go-here").appendChild(newcard);
+        document.getElementById(container + "-go-here").appendChild(newcard);
         i++;
       });
     });
 }
-displayPotties("Potties");
 
-function setPottyData(id) {
-  localStorage.setItem("pottyID", id);
-}
-
+//-------------------
+// function to search
+//-------------------
 // Credits: https://www.youtube.com/watch?v=RVrHC__Tkx0&ab_channel=ABNationProgrammers
 function searchProduct() {
   const searchInput = document.getElementById("filter").value.toUpperCase();
@@ -119,7 +123,9 @@ function searchProduct() {
   }
 }
 
-// function indicator() {
+//-----------------------------------------------------------
+// Script to toggle/untoggle success indicator after posting
+//-----------------------------------------------------------
 var b = localStorage.getItem("myValue");
 if (b == "clicked") {
   document.getElementById("indicator").style.display = "flex";
@@ -133,3 +139,9 @@ setTimeout(function () {
   localStorage.setItem("myValue", resetValue);
 }, 3000);
 
+//------------------------------------------------
+// function to save the potty ID in local storage
+//------------------------------------------------
+function setPottyData(id) {
+  localStorage.setItem("pottyID", id);
+}
