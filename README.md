@@ -75,7 +75,7 @@ It has the following subfolders and files:
         /style.css              # style for all HTML files
         /tabbars.css            # style for potty.html, for the tab bars
         /write-post.css         # style for write-post.html
-├── template                    # Folder for the navigation and footer bars
+└── template                    # Folder for the navigation and footer bars
         /footer.html            # Footer HTML template
         /navbar.html            # Navigation HTML template
 
