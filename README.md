@@ -23,7 +23,7 @@ A web application to help people with special needs to find bathrooms that can a
 
 - Hi my name is Kent. I'm excited about this project because it's my first time collaborating using GitHub!
 
-- Hi my name is Tommy. I'm excited about this project because i'm straight poggers, pogger poggington. SHEEEEEEESH
+- Hi my name is Tommy. I'm excited about this project because i'm excited to pop off.
 
 - Hi my name is Xinyang. I'm excited about this project because this is new to me!
 
