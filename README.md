@@ -6,19 +6,19 @@
 
 ## General Info
 
-This browser based web application to ...
+A web application to help people with special needs to find bathrooms that can accomodate them by viewing a list of bathrooms with user reviews and features such as wheelchair accessibility, diaper changing station, etc. 
 
-- Hi my name is Xinyang. I'm excited about this project because this is new to me!
+- Hi my name is Kent. I'm excited about this project because it's my first time collaborating using GitHub!
 
 - Hi my name is Tommy. I'm excited about this project because i'm straight poggers, pogger poggington. SHEEEEEEESH
 
-* Hi my name is Kent. I'm excited about this project because it's my first time collaborating using GitHub!
+- Hi my name is Xinyang. I'm excited about this project because this is new to me!
 
 ## Technologies
 
 Technologies used for this project:
 * HTML, CSS
-* JavaScript and JSON
+* JavaScript, JSON
 * Bootstrap
 * Firebase and Firestore 
 
@@ -39,12 +39,13 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .git                        # Folder for git repo
+├── .vscode                     # Folder for live server
+        /settings.json          # json for live server port
 ├── fonts                       # Folder for fonts
         /Gilroy-ExtraBold.oft   # Gilroy font style to be used in HTML files
 ├── images                      # Folder for images
         /branding-04.svg        # Branding Logo used on the website
         /favicon.ico            # Favicon icon for the website
-        /image.jpg              # ???
 ├── scripts                     # Folder for scripts
         /authentication.js      # JS to authorize user
         /potties.js             # JS for potties.html
@@ -54,11 +55,9 @@ It has the following subfolders and files:
         /skeleton.js            # JS to set up the navigation and footer bar for HTML files.
         /write-a-post.js        # JS for write-post.html
 ├── styles                      # Folder for styles
-        /carousel.css           # ??? DEAD FUNCTION LMAO
         /login.css              # style for index.html
         /potty.css              # style for potty.html
         /profile.css            # style for profile.html
-        /review.css             # ??? DEAD FUNCTION LMAO
         /style.css              # style for all HTML files
         /tabbars.css            # style for potty.html, for the tab bars
         /write-post.css         # style for write-post.html
@@ -80,14 +79,15 @@ Firebase hosting files:
 ## Resources
 - In-app icons from Feather v4.28.0 (Open Source https://feathericons.com/)
 - Logo homemade!
+- Search function (https://www.youtube.com/watch?v=RVrHC__Tkx0&ab_channel=ABNationProgrammers)
 
 ## Contact 
-* 
-* Tommy Nguyen - 
-* 
+* Kent - kconcengco@my.bcit.ca
+* Tommy - tnguyen528@my.bcit.ca
+* Xinyang - xli245@my.bcit.ca
 
 ## Acknowledgements 
-* function searchProduct()      # Credits to https://www.youtube.com/watch?v=RVrHC__Tkx0&ab_channel=ABNationProgrammers       
+* <a href="https://fonts.google.com/">Google Fonts</a>
 * <a href="https://getbootstrap.com/">Bootstrap</a>
 
 Tips for file naming files and folders:
