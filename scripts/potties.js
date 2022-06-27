@@ -27,6 +27,7 @@ function displayPotties() {
     .orderBy(value, order)
     .get()
     .then((snap) => {
+      
       var i = 1;
       snap.forEach((doc) => {
         var title = doc.data().title;
@@ -96,11 +97,13 @@ function displayPotties() {
         newcard.querySelector(".link-spanner").onclick = () =>
           setPottyData(doc.id);
 
-        document.getElementById(container + "-go-here").appendChild(newcard);
+        document.getElementById("Potties-go-here").appendChild(newcard);
         i++;
       });
     });
 }
+
+displayPotties()
 
 //-------------------
 // function to search
@@ -132,7 +135,6 @@ if (b == "clicked") {
   document.getElementById("indicator").style.justifyContent = "center";
 }
 var resetValue = "";
-console.log(b);
 
 setTimeout(function () {
   document.getElementById("indicator").style.display = "none";

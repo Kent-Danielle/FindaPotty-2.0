@@ -81,7 +81,7 @@
             <!-- Potty image container -->
             <div class="col-5 d-flex align-items-center">
               <img id="pottyImage" src="https://dummyimage.com/600x600/000/fff"
-                class="w-100 rounded float-start rounded-start p-md-3" alt="..." />
+                class="w-100 rounded-3 float-start rounded-start p-md-3" alt="..." />
             </div>
             <div class="col-7">
               <!-- Bookmark button. -->
@@ -140,9 +140,9 @@
           </button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="post-tab nav-link fs-6" id="photos-tab" data-bs-toggle="tab" data-bs-target="#photos"
+          <button class="post-tab nav-link fs-6" id="photos-tab" data-bs-toggle="tab" data-bs-target="#reviews"
             type="button" role="tab" aria-controls="photos" aria-selected="false">
-            Photos
+            Reviews
           </button>
         </li>
       </ul>
@@ -167,19 +167,25 @@
               cum quisquam perspiciatis iure alias sed harum fugit nihil et
               voluptatum? Quisquam nemo eaque quidem.
             </p>
-            <p id="author" class="m-0 mt-3">None</p>
+            <p id="author" class="m-0 mt-3 fs-7">None</p>
           </div>
         </div>
 
-        <!-- Photos tab. -->
-        <div class="tab-pane h-75 fade" id="photos" role="tabpanel" aria-labelledby="photos-tab">
-          <div class="row">
-            <div class="col-4 p-2 img-container">
-              <img id="pottyPhotos" src="" class="w-100" alt="" />
-            </div>
-            <div class="col-4 p-2 img-container"></div>
-            <div class="col-4 p-2 img-container"></div>
-          </div>
+        <!-- Reviews tab. -->
+        <div class="tab-pane h-100 fade" id="reviews" role="tabpanel" aria-labelledby="photos-tab">
+          <a id="review-btn" href="write-review.html" class="btn rounded-pill bg-primary w-100 mx-0 my-2 px-3 py-2 text-start">Write a review...</a>
+          <template id="review-card" class="px-2 py-3">
+            <div id="review-rating" class="rating my-2"></div>
+            <p id="date" class="m-0 mb-2 fs-7">None</p>
+            <p id="review" class="m-0">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Recusandae quidem magnam, adipisci dignissimos possimus pariatur
+              cum quisquam perspiciatis iure alias sed harum fugit nihil et
+              voluptatum? Quisquam nemo eaque quidem.
+            </p>
+            <p id="author" class="m-0 mt-3 fs-7">None</p>
+          </template>
+          <hr>
         </div>
       </div>
 

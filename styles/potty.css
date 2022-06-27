@@ -36,3 +36,6 @@
 	color: #272643 !important;
 }
 
+.tab-pane {
+	overflow-y: scroll;
+}

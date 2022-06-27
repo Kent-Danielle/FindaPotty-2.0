@@ -86,6 +86,7 @@ function storeImage(pottyid, pickedfile) {
   });
 }
 
+// Set a value in local storage to signal the app that a new post has been created
 document.getElementById("post-potty").addEventListener("click", () => {
   var a = "clicked";
   localStorage.setItem("myValue", a);

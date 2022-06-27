@@ -35,8 +35,7 @@ function insertNameAndDate() {
 //-------------------------------------------
 // function to display Potties posted by user
 //-------------------------------------------
-function displayPotties(collection) {
-  let cardTemplate = document.getElementById("pottyTemplate");
+function displayPotties(collection) { 
 
   db.collection(collection)
     .where("userID", "==", currentUser.id)
